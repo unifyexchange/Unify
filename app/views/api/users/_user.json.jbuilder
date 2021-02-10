@@ -1,0 +1,1 @@
+json.extract! user, :id, :email_address, :first_name, :last_name, :school_id, :school_url, :school_location, :school_size

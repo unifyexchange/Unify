@@ -1,0 +1,243 @@
+.item-show-content {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 150px;
+}
+
+.item-show-header-section {
+  display: flex;
+  align-items: center;
+}
+
+.item-show-header-category {
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: 3px solid green;
+  color: green;
+  border-radius: 50px;
+  margin-right: 15px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 14px;
+}
+
+.item-show-header-created-at {
+  color: gray;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 12px;
+}
+
+.item-show-image-section {
+  position: relative;
+  width: 60%;
+}
+
+.item-show-info-section {
+  width: 50%;
+}
+
+.item-show-image-gallery-section {
+  position: absolute;
+  bottom: 0;
+  margin-left: 30px;
+}
+
+.item-show-image-content {
+  display: flex;
+}
+
+.item-show-name {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.item-show-subtitle {
+  font-family: 'Lexend Deca', sans-serif;
+  color: gray;
+  font-size: 23px;
+  margin-bottom: 23px;
+}
+
+.item-show-price {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 40px;
+  margin-bottom: 33px;
+}
+
+.item-show-user-action-section {
+  display: flex;
+}
+
+.message-seller-button {
+  width: 250px;
+  height: 48px;
+  background-color: #00b248;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.message-seller-button:hover {
+  background-color: #00e575;
+}
+
+.favorite-heart-icon-section {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.item-show-break-line {
+  width: 75%;
+  display: block;
+  border: none;
+  height: 1px;
+  background: #f2f2f2;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.item-show-detail-row {
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 14px;
+  overflow-x: auto;
+}
+
+.item-show-detail-row-title {
+  color: gray;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.item-show-detail-row-value {
+  position: absolute;
+  left: 100px;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.item-show-description-section {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  padding-right: 20px;
+}
+
+.item-show-description-title {
+  margin-bottom: 10px;
+  color: gray;
+}
+
+.item-show-name {
+  padding-right: 20px;
+}
+
+.item-show-subtitle {
+  padding-right: 20px;
+}
+
+.message-modal-section {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+
+.delete-item-button {
+  width: 250px;
+  height: 48px;
+  background-color: #b92b27;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.message-modal-content {
+  position: fixed;
+  width: 500px;
+  height: 350px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px; /* Negative half of height. */
+  margin-left: -250px; /* Negative half of width. */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.message-modal-header {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 23px;
+  color: rgb(80, 80, 80);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.message-modal-input-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 23px;
+  margin-bottom: 30px;
+}
+
+.checkmark-section {
+  text-align: center;
+}
+
+.message-modal-text-input {
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  color: darkgray;
+  font-size: 14px;
+  width: 400px;
+  padding: 7px;
+  resize: none;
+}
+
+.message-modal-confirm-button {
+  width: 140px;
+  height: 48px;
+  background-color: #00b248;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.message-modal-confirm-button:hover {
+  background-color: #00e575;
+  cursor: pointer;
+}
+
+.message-modal-cancel-button {
+  height: 30px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.message-modal-cancel-button:hover {
+  cursor: pointer;
+  opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important; /* For IE8 and earlier */
+  box-shadow: 0 0 0px #000000 !important;
+}
