@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_100656) do
+ActiveRecord::Schema.define(version: 2021_02_23_013949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(version: 2020_06_12_100656) do
     t.integer "school_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_verified"
+    t.boolean "forgot_password"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
