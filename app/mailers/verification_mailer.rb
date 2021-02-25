@@ -5,10 +5,10 @@ class VerificationMailer < ApplicationMailer
   #
   #   en.verification_mailer.verifyUser.subject
   #
-  def verifyUser
-    @greeting = "Hi"
+  def verifyUser(user)
+    @user = user
 
-    mail to: "to@example.org"
+    mail to: "#{user.email_address}", subject: "Verify your account"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

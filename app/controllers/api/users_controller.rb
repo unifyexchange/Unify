@@ -15,6 +15,8 @@ class Api::UsersController < ApplicationController
       #   login(@user)
       #   render "api/users/show"
 
+      VerificationMailer.verifyUser(@user).deliver_now
+      
       @user.errors.add(:base, "Please verify your email")
       render json: @user.errors.full_messages, status: 422
       return
