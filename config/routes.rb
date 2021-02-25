@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     
     get '/messages', to: 'messages#index'
     post '/conversations', to: 'conversations#create'
+
+    get '/verifyUser/:id', to: 'users#update'
+    
     # post '/reports', to: 'reports#create'
   end
   

@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     # Automatically assign user to Redlands which is the only school in the system
-    if valid_edu_email_address?(user_params[:email_address])
+    if true #valid_edu_email_address?(user_params[:email_address])
        @user.assign_attributes({ school: School.first } ) 
     else
       @user.errors.add(:base, "Must use a valid Redlands email address to register")
@@ -16,13 +16,24 @@ class Api::UsersController < ApplicationController
       #   render "api/users/show"
 
       VerificationMailer.verifyUser(@user).deliver_now
-      
+
       @user.errors.add(:base, "Please verify your email")
       render json: @user.errors.full_messages, status: 422
       return
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    @user.is_verified = true
+    @user.save
+
+    login(@user)
+    redirect_to "/"
+
   end
 
   private

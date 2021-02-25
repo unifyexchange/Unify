@@ -6,8 +6,13 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
-      login(@user)
-      render "api/users/show"
+      if @user.is_verified
+        login(@user)
+        render "api/users/show"
+      else
+        render json: ["Verify your email to login"], status: 401
+      end
+
     else
       render json: ["Invalid email address/password combination"], status: 401
     end
