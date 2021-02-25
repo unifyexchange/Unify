@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 import "./styles.scss";
 
@@ -11,7 +12,11 @@ class LoginForm extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.forgotPassword = false
   }
+
+  
 
   update(field) {
     return (e) =>
@@ -19,6 +24,28 @@ class LoginForm extends React.Component {
         [field]: e.currentTarget.value.trim(),
       });
   }
+
+  forgotPasswordTapped = () => {
+    this.forgotPassword = true
+
+    // fetch(`http://localhost:3000/api/sendForgotPasswordEmail/${this.state.email_address}`)
+    // .then(res => res.json())
+    // .then(
+    //   this.update("email_address")
+    // )
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", `http://127.0.0.1:3000/api/sendForgotPasswordEmail`, true);
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://google.com');
+    xhr.send(JSON.stringify({
+        email: this.state.email_address
+    }));
+
+    
+    this.setState( {email_address: this.state.email_address, password: this.state.password} )
+
+    }
 
   handleSubmit(e) {
     console.log("handling submit")
@@ -28,6 +55,13 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    if (this.forgotPassword) {
+      return (
+        <ul className="error-section">
+            <li key={`forgot-psw`}>Verify your email to change your password</li>
+        </ul>
+      );
+    }
     return (
       <ul className="error-section">
         {this.props.errors.map((error, i) => (
@@ -36,6 +70,10 @@ class LoginForm extends React.Component {
       </ul>
     );
   }
+
+
+
+
 
   render() {
     return (
@@ -74,6 +112,11 @@ class LoginForm extends React.Component {
                 className="login-input"
               />
             </label>
+
+          <br/>
+          <Button variant="link" onClick={this.forgotPasswordTapped}>Forgot password?</Button>
+          <br/>
+
             <br />
             {this.renderErrors()}
             <br />

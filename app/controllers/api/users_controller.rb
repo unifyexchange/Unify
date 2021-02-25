@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
     @user = User.new(user_params)
 
@@ -25,7 +27,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def update
+  def verify
     @user = User.find(params[:id])
 
     @user.is_verified = true
@@ -34,6 +36,18 @@ class Api::UsersController < ApplicationController
     login(@user)
     redirect_to "/"
 
+  end
+
+  def sendForgotPasswordEmail
+   
+    VerificationMailer.forgotPassword(params[:email]).deliver_now
+
+    render json: "Success", status: 200
+    
+  end
+
+  def changePassword
+    redirect_to "/"
   end
 
   private

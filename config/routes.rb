@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     get '/messages', to: 'messages#index'
     post '/conversations', to: 'conversations#create'
 
-    get '/verifyUser/:id', to: 'users#update'
+    get '/verifyUser/:id', to: 'users#verify'
+    post '/sendForgotPasswordEmail', to: 'users#sendForgotPasswordEmail'
+    get '/changePassword/:id', to: 'users#changePassword'
     
     # post '/reports', to: 'reports#create'
   end

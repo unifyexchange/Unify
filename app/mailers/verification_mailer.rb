@@ -16,9 +16,9 @@ class VerificationMailer < ApplicationMailer
   #
   #   en.verification_mailer.forgotPassword.subject
   #
-  def forgotPassword
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def forgotPassword(email)
+    @email = email
+    
+    mail to: "#{email}", subject: "Change your password"
   end
 end
