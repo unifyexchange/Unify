@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     # Automatically assign user to Redlands which is the only school in the system
-    if true #valid_edu_email_address?(user_params[:email_address])
+    if valid_edu_email_address?(user_params[:email_address])
        @user.assign_attributes({ school: School.first } ) 
     else
       @user.errors.add(:base, "Must use a valid Redlands email address to register")
