@@ -65,7 +65,8 @@ export const changePassword = (payload) => {
         return null;
       },
       (err) => {
-        if (err.statusCode == 200) {
+        console.log(err.status)
+        if (err.status == 200) {
 
           const user = {
             email_address: err.responseText,

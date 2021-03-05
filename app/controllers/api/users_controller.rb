@@ -57,6 +57,8 @@ class Api::UsersController < ApplicationController
     @user.forgot_password = true
     @user.save
 
+    print @user.forgot_password
+
     redirect_to "#/changePassword/#{params[:id]}"
   end
 
@@ -64,6 +66,7 @@ class Api::UsersController < ApplicationController
   def changePassword
 
     @user = User.find(changePassword_params[:userID])
+    print @user.forgot_password
 
     if @user.forgot_password
       @user.password = changePassword_params[:password]
@@ -71,7 +74,6 @@ class Api::UsersController < ApplicationController
       @user.save
       render json: "#{@user.email_address}", status: 200
     else
-      redirect_to "/"
       render json: "Forbidden", status: 403
     end
 
