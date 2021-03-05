@@ -17,9 +17,12 @@ class Api::UsersController < ApplicationController
       #   login(@user)
       #   render "api/users/show"
 
-      VerificationMailer.verifyUser(@user).deliver_now
+      if !@user.is_verified
+        VerificationMailer.verifyUser(@user).deliver_now
 
-      @user.errors.add(:base, "Please verify your email")
+        @user.errors.add(:base, "Please check your email for verification")
+      end
+
       render json: @user.errors.full_messages, status: 422
       return
     else
@@ -39,15 +42,27 @@ class Api::UsersController < ApplicationController
   end
 
   def sendForgotPasswordEmail
-   
-    VerificationMailer.forgotPassword(params[:email]).deliver_now
+    @user = User.find_by(email_address: params[:email])
 
-    render json: "Success", status: 200
-    
+    if @user
+      VerificationMailer.forgotPassword(@user).deliver_now
+      render json: "Success", status: 200
+    else
+      render json: "Email not found", status: 404
+    end
   end
 
+  def verifyChangePassword
+    @user = User.find(params[:id])
+    @user.forgot_password = true
+    @user.save
+
+    redirect_to "#/login/#{params[:id]}"
+  end
+
+
   def changePassword
-    redirect_to "/"
+
   end
 
   private

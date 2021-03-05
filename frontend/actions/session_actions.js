@@ -50,6 +50,19 @@ export const login = (user) => {
   };
 };
 
+export const changePassword = (user) => {
+  return (dispatch) => {
+    return APIUtil.changePassword(user).then(
+      (user) => {
+        return dispatch(receiveCurrentUser(user));
+      },
+      (err) => {
+        return dispatch(receiveErrors(err.responseJSON));
+      }
+    );
+  };
+};
+
 export const logout = () => {
   return (dispatch) => {
     return APIUtil.logout().then((user) => {

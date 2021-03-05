@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
         login(@user)
         render "api/users/show"
       else
-        render json: ["Verify your email to login"], status: 401
+        render json: ["Please check your email for verification"], status: 401
       end
 
     else

@@ -44,7 +44,7 @@ const termsOfUse = [
   },
   {
     no: 4,
-    title: "Description of the Unify, LLC Service",
+    title: "Description of the Unify Exchange, LLC Service",
     description:
 `The Unify Exchange, LLC Service provides a simple and efficient marketplace for buying, selling, and sharing of goods and services locally within the university community. The Unify Exchange, LLC Service creates a place for buyers and sellers to connect. To participate in the Unify Exchange, LLC Service, a seller takes a photograph of a good he or she wishes to sell and then posts it to the Unify Exchange, LLC Service with an asking price to allow a potential local buyer to view the good and make an offer. The Unify Exchange, LLC Service includes an in-app messaging featureG that allows a buyer and a seller to discuss details of the good and set up an in-person meeting to finalize the purchase.`,
     break: false,
@@ -102,7 +102,7 @@ const termsOfUse = [
   },
   {
     no: 6,
-    title: "Proprietary Rights in Content on Unify, LLC",
+    title: "Proprietary Rights in Content on Unify Exchange, LLC",
     description:
 `Unify Exchange, LLC does not claim any ownership rights in the text, files, images, photos, video, sounds, musical works, works of authorship, applications, or any other materials (collectively, "Content") that you post on Unify Exchange. After posting your Content to Unify Exchange, you continue to retain any such rights that you may have in your Content, subject to the limited license herein. By displaying or publishing ("posting") any Content on or through the Unify Exchange, LLC Services, you hereby grant to Unify Exchange, LLC a limited license to use, modify, delete from, add to, publicly perform, publicly display, reproduce, and distribute such Content on the Unify Exchange, LLC Services, set up specifically for the use of your organization or institution, including without limitation distributing part or all of the Unify Exchange, LLC website in any media formats and through any media channels. After you remove your Content from Unify Exchange, LLC we will cease distribution as soon as practicable, and at such time when distribution ceases, the license will terminate.`,
     break: true,

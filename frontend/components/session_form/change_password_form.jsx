@@ -4,18 +4,20 @@ import Button from 'react-bootstrap/Button';
 
 import "./styles.scss";
 
-class LoginForm extends React.Component {
+class ChangePasswordForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email_address: "",
       password: "",
+      passwordAgain: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    this.forgotPassword = false
     this.hasSubmitted = false
 
+    this.userID = props.match.params.userID
+
+    console.log(props.match.params.userID)
   }
 
   
@@ -45,40 +47,37 @@ class LoginForm extends React.Component {
     }));
 
     
-    this.setState( {email_address: this.state.email_address, password: this.state.password} )
+    this.setState( {passwordAgain: this.state.passwordAgain, password: this.state.password} )
 
     }
 
   handleSubmit(e) {
     this.hasSubmitted = true
     console.log("handling submit")
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+
+    if (this.state.password != this.state.passwordAgain) {
+        this.setState( {passwordAgain: this.state.passwordAgain, password: this.state.password} )
+    } else {
+        e.preventDefault();
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user);
+    }
   }
 
   renderErrors() {
     console.log(this.hasSubmitted, this.props.errors)
     if (this.hasSubmitted) {
-      if (this.forgotPassword) {
-        return (
-          <ul className="error-section">
-              <li key={`forgot-psw`}>Verify your email to change your password</li>
-          </ul>
-        );
-      }
-      return (
-        <ul className="error-section">
-          {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>{error}</li>
-          ))}
-        </ul>
-      );
-    } else {
-      return (<ul className="error-section">
+        if (this.state.password != this.state.passwordAgain) {
+            return (<ul className="error-section">
+            <li key={`error-${1}`}>Passwords do not match</li>
+        </ul>)
+        }
+        
+    } 
+    return (<ul className="error-section">
         <li key={`error-${1}`}></li>
-      </ul>)
-    }
+    </ul>)
+    
   }
 
 
@@ -96,7 +95,7 @@ class LoginForm extends React.Component {
           />
         </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <label className="login-header">Welcome back to Unify.</label>
+          <label className="login-header">Change your password</label>
           <br />
           <p className="dont-have-an-account-link">
             Don't have an account? {this.props.navLink}
@@ -104,17 +103,7 @@ class LoginForm extends React.Component {
           <div className="login-form">
             <br />
             <label className="email-text">
-              Email Address:
-              <input
-                type="text"
-                value={this.state.email_address}
-                onChange={this.update("email_address")}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <label className="password-text">
-              Password:
+              New password:
               <input
                 type="password"
                 value={this.state.password}
@@ -122,15 +111,21 @@ class LoginForm extends React.Component {
                 className="login-input"
               />
             </label>
-
-          <br/>
-          <Button variant="link" onClick={this.forgotPasswordTapped}>Forgot password?</Button>
-          <br/>
+            <br />
+            <label className="password-text">
+              New password, again:
+              <input
+                type="password"
+                value={this.state.passwordAgain}
+                onChange={this.update("passwordAgain")}
+                className="login-input"
+              />
+            </label>
 
             <br />
             {this.renderErrors()}
             <br />
-            <input className="login-submit" type="submit" value="Login" />
+            <input className="login-submit" type="submit" value="Confirm" />
           </div>
         </form>
       </div>
@@ -138,4 +133,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default withRouter(LoginForm);
+export default withRouter(ChangePasswordForm);

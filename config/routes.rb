@@ -24,8 +24,10 @@ Rails.application.routes.draw do
 
     get '/verifyUser/:id', to: 'users#verify'
     post '/sendForgotPasswordEmail', to: 'users#sendForgotPasswordEmail'
-    get '/changePassword/:id', to: 'users#changePassword'
+    get '/verifyChangePassword/:id', to: 'users#verifyChangePassword'
+    post '/changePassword', to: 'users#changePassword'
     
+
     # post '/reports', to: 'reports#create'
   end
   

@@ -20,3 +20,11 @@ export const logout = () => {
     url: "/api/session",
   });
 };
+
+export const changePassword = (user) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/user",
+    data: { user },
+  });
+};

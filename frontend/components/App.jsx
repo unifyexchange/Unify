@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
+import ChangePasswordFormContainer from './session_form/change_password_form_container';
 import ItemFormContainer from './item_form/item_form_container';
 
 import TermsOfServiceContainer from "./terms_of_service/terms_of_service";
@@ -87,6 +88,7 @@ const App = () => (
       <AuthRoute exact path="/" component={Landing} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <AuthRoute exact path="/changePassword/:userID" component={ChangePasswordFormContainer} />
       <AuthRoute
         exact
         path="/terms-of-service"
