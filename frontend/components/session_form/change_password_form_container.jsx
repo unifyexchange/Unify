@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 import { Link } from "react-router-dom";
-import { login } from "../../actions/session_actions";
+import { changePassword } from "../../actions/session_actions";
 import ChangePasswordForm from "./change_password_form";
 
 const mapStateToProps = ({ errors }) => {
@@ -14,7 +14,7 @@ const mapStateToProps = ({ errors }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    processForm: (user) => dispatch(login(user)),
+    processForm: (payload) => dispatch(changePassword(payload)),
   };
 };
 

@@ -21,10 +21,10 @@ export const logout = () => {
   });
 };
 
-export const changePassword = (user) => {
+export const changePassword = (payload) => {
   return $.ajax({
     method: "POST",
-    url: "/api/user",
-    data: { user },
+    url: "/api/changePassword",
+    data: { payload },
   });
 };

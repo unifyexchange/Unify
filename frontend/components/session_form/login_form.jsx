@@ -29,6 +29,7 @@ class LoginForm extends React.Component {
 
   forgotPasswordTapped = () => {
     this.forgotPassword = true
+    this.hasSubmitted = true
 
     // fetch(`http://localhost:3000/api/sendForgotPasswordEmail/${this.state.email_address}`)
     // .then(res => res.json())

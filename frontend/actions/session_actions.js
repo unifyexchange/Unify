@@ -50,14 +50,34 @@ export const login = (user) => {
   };
 };
 
-export const changePassword = (user) => {
+export const changePassword = (payload) => {
   return (dispatch) => {
-    return APIUtil.changePassword(user).then(
-      (user) => {
-        return dispatch(receiveCurrentUser(user));
+    return APIUtil.changePassword(payload).then(
+   
+      (email_address) => {
+        // console.log("finished API")
+        // console.log(email_address)
+        // const user = {
+        //   email_address: email_address,
+        //   password: payload.password,
+        // }
+        // return dispatch(receiveCurrentUser(user));
+        return null;
       },
       (err) => {
-        return dispatch(receiveErrors(err.responseJSON));
+        if (err.statusCode == 200) {
+
+          const user = {
+            email_address: err.responseText,
+            password: payload.password,
+          }
+          dispatch(receiveCurrentUser(user))
+          
+          return dispatch(login(user));
+        } else {
+          return dispatch(receiveErrors(["Forbidden"]));
+        }
+        
       }
     );
   };

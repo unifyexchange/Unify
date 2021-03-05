@@ -8,6 +8,7 @@ class ChangePasswordForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      userID: props.match.params.userID,
       password: "",
       passwordAgain: "",
     };
@@ -15,7 +16,6 @@ class ChangePasswordForm extends React.Component {
 
     this.hasSubmitted = false
 
-    this.userID = props.match.params.userID
 
     console.log(props.match.params.userID)
   }
@@ -57,10 +57,12 @@ class ChangePasswordForm extends React.Component {
 
     if (this.state.password != this.state.passwordAgain) {
         this.setState( {passwordAgain: this.state.passwordAgain, password: this.state.password} )
-    } else {
+    } else if (this.state.passwordAgain.length < 6) {
+        this.setState( {passwordAgain: this.state.passwordAgain, password: this.state.password} )
+    }else {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        const payload = Object.assign({}, this.state);
+        this.props.processForm(payload);
     }
   }
 
@@ -71,6 +73,18 @@ class ChangePasswordForm extends React.Component {
             return (<ul className="error-section">
             <li key={`error-${1}`}>Passwords do not match</li>
         </ul>)
+        } else if (this.state.passwordAgain.length < 6) {
+            return (<ul className="error-section">
+            <li key={`error-${1}`}>Password must be at least 6 characters</li>
+        </ul>)
+        } else if (this.props.errors) {
+            return (
+                <ul className="error-section">
+                  {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>{error}</li>
+                  ))}
+                </ul>
+              );
         }
         
     } 
