@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
       if (this.forgotPassword) {
         return (
           <ul className="error-section">
-              <li key={`forgot-psw`}>Verify your email to change your password</li>
+              <li key={`forgot-psw`}>Please check your email to change your password</li>
           </ul>
         );
       }

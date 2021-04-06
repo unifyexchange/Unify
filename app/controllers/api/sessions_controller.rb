@@ -1,9 +1,12 @@
 class Api::SessionsController < ApplicationController
   def create
+    print "before\n"
+    print User.last.email_address+ "\n"
     @user = User.find_by_credentials(
       params[:user][:email_address],
       params[:user][:password]
     )
+    print "after\n"
 
     if @user
       if @user.is_verified
