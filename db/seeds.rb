@@ -16,7 +16,7 @@ Searchstring.destroy_all
 school = School.create(name: "University of Redlands", description: "The Universirt of Redlands is a private, non-profit university situated on 160 acres near downtown", institution_size: 3169, location: "Redlands, California", phone: "(909) 793-2121", logo_image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Funiversity_of_redlands_logo.png?alt=media&token=186257de-48e7-4eca-9454-1ccdcd9955a5")
 
 # Create users
-user1 = User.create(email_address: "admin@unify.com", school_id: school.id, first_name: "Admin", last_name: "Admin", password: "password")
+user1 = User.create(email_address: "admin@unify.com", is_verified: true, school_id: school.id, first_name: "Admin", last_name: "Admin", password: "password")
 user2 = User.create(email_address: "don@joinhandshake.com", school_id: school.id, first_name: "Don", last_name: "Sirivat", password: "password")
 user3 = User.create(email_address: "user1@redlands.edu", school_id: school.id, first_name: "Katie", last_name: "Krizan", password: "password")
 user4 = User.create(email_address: "rolex@redlands.edu", school_id: school.id, first_name: "Tobias", last_name: "Harris", password: "password")
@@ -26,7 +26,7 @@ user7 = User.create(email_address: "2134-945@redlands.edu", school_id: school.id
 user8 = User.create(email_address: "shayna123@redlands.edu", school_id: school.id, first_name: "Shayna", last_name: "Denu", password: "password")
 user9 = User.create(email_address: "realperson@redlands.edu", school_id: school.id, first_name: "Blake", last_name: "Mohammad", password: "password")
 user10 = User.create(email_address: "admin@redlands.edu", school_id: school.id, first_name: "Victory", last_name: "Patryk", password: "password")
-
+user11 = User.create(email_address: "ryanmcduffie07@gmail.com", is_verified: true, school_id: school.id, first_name: "Ryan", last_name: "McDuffie", password: "password")
 # Create categories
 electronics = Category.create(name: "Electronics", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Felectronics_category.png?alt=media&token=5466136c-46ad-426b-aa7b-f5d191b64a05")
 textbooks = Category.create(name: "Textbooks", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Ftextbooks_category.png?alt=media&token=b837df7b-ef7c-4db0-94cd-5a93ce41b461")

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  $admin  = ["admin@unify.com","ryanmcduffie07@gmail.com", "floris.vandervis@hotmail.com"]
+  $admin  = ["admin@unify.com","ryanmcduffie07@gmail.com", "floris.vandervis@hotmail.com", "ludotrico@gmail.com"]
   def current_user
     return nil unless session[:session_token]
     @current_user ||= User.find_by(session_token: session[:session_token])
