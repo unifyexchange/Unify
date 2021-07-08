@@ -39,7 +39,7 @@ class ChangePasswordForm extends React.Component {
     // )
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", `https://unify-309723.wm.r.appspot.com/api/sendForgotPasswordEmail`, true);
+    xhr.open("POST", `unify-311918.wl.r.appspot.com/api/sendForgotPasswordEmail`, true);
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://google.com');
     xhr.send(JSON.stringify({

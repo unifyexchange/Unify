@@ -104,5 +104,5 @@ Rails.application.configure do
     password: "15006221444"
   }
 
-  config.action_mailer.default_url_options = {host: "https://unify-309723.wm.r.appspot.com"}
+  config.action_mailer.default_url_options = {host: "unify-311918.wl.r.appspot.com"}
 end

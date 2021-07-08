@@ -1,13 +1,19 @@
 entrypoint: bundle exec rackup --port $PORT
-# env: flex
-runtime: ruby27
+env: flex
+# runtime: ruby27
+runtime: ruby
+
+instance_class: B1
+
+manual_scaling:
+  instances: 1
 # automatic_scaling:
 #   min_num_instances: 1
-#   max_num_instances: 8
+#   max_num_instances: 1
 
-basic_scaling:
- max_instances: 10
- idle_timeout: 5m
+# basic_scaling:
+#  max_instances: 10
+#  idle_timeout: 5m
 
 
 beta_settings:
