@@ -5,10 +5,10 @@ const aboutSection = [
     no: "",
     title: "",
     description: [
-      "Unify was created by two University of Redlands students, Ryan McDuffie and Floris Van der Vis in order to make buying and selling used items for students easier," +
-        "quicker, and most importantly, safer. Apps like Craigslist and OfferUp are great, but they pose several important issues. When using these apps, you" +
-        "are meeting up with a complete stranger, which can be risky. Aside from this, you must find a way to get" +
-        "off campus to meet the person, which is another hassle in itself",
+      "Unify was created by two University of Redlands students, Ryan McDuffie and Floris Van der Vis in order to make buying and selling used items for students easier, " +
+        "quicker, and most importantly, safer. Apps like Craigslist and OfferUp are great, but they pose several important issues. When using these apps, you " +
+        "are meeting up with a complete stranger, which can be risky. Aside from this, you must find a way to get " +
+        "off campus to meet the person, which is another hassle in itself.",
     ],
     newLine: true,
     subDescription: false,
@@ -38,7 +38,7 @@ const aboutSection = [
     students are easily able to broadcast the items they no longer want to the whole University community
     and can earn a quick buck on things they would normally throw away. Together, we can earn some extra
     money, save a little, and help cut down on unnecessary environmental waste caused by students
-    throwing out items that can be sold and reused! -Unify Team`,
+    throwing out items that can be sold and reused!`,
     ],
     newLine: true,
     subDescription: false,
@@ -92,10 +92,7 @@ const aboutSection = [
     no: "",
     title: "Tips for a good listing",
     description: [
-      `Think of a catchy, short title that describes the item well`,
-      `In the description put some brief info on the condition, why you’re selling it, or why someone`,
-      `should buy your item`,
-      `Make sure to be honest, the buyer could be driven away by misinformation!`,
+      `Think of a catchy, short title that describes the item well. In the description put some brief info on the condition, why you’re selling it, or why someone should buy your item. Make sure to be honest, the buyer could be driven away by misinformation!`,
     ],
     newLine: true,
     subDescription: false,
