@@ -2,6 +2,7 @@
   padding-top: 75px;
   position: relative;
   overflow-y: scroll;
+  margin-bottom: 10%;
 }
 
 .send-message-section {
@@ -9,7 +10,7 @@
   background-color: rgb(230, 230, 230);
   position: fixed;
   bottom: 0;
-  height: 50px;
+  height: 10%;
 }
 
 .message-form-box {
@@ -21,7 +22,7 @@
 
 .message-form-input {
   width: 70%;
-  height: 25px;
+  height: 50%;
   border-radius: 5px;
   border: 1px solid white;
   background-color: #fafafa;

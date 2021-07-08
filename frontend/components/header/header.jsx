@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { adminEmails } from "../../util/adminAccount"
 import "./styles.scss";
+import  firebase  from 'firebase/app';
 
 class Header extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Header extends React.Component {
       showMenu: true,
       width: 0,
       height: 0,
+      hasUnreadMessages: false,
     };
     this.handleClick = this.handleClick.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -23,7 +25,50 @@ class Header extends React.Component {
     this.fetchTheCategories();
     document.addEventListener("mousedown", this.handleClick, false);
     window.addEventListener("resize", this.updateWindowDimensions);
+
+    this.observeConversations(this.props.currentUser);
   }
+
+  getCurrentUserName = (currentUser) => {
+    return `${currentUser.first_name} ${currentUser.last_name}`;
+  }
+  
+  observeConversations = async (currentUser) => {
+    console.log("in observe", currentUser);
+    await firebase.firestore().collection("conversations").where('users', 'array-contains', {id: currentUser.id, name: this.getCurrentUserName(currentUser)})
+    .onSnapshot(async querySnapshot => {
+      var hasUnreadMessages = false;
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log("SOCKET RELOADED");
+        const conversation = doc.data();
+
+        if (this.isUnread(conversation)) {
+          hasUnreadMessages = true;
+        }
+
+       });
+
+       this.setState({
+         hasUnreadMessages: hasUnreadMessages
+       });
+
+
+
+
+    });
+  }
+
+
+  isUnread = (conversation) => {
+    const lastMessage = conversation.messages[conversation.messages.length-1];
+    if (lastMessage.senderID !== this.props.currentUser.id) {
+      return !conversation.recipientHasRead;
+    }
+    return false;
+    
+  }
+
 
   fetchTheCategories() {
     if (Object.keys(this.props.categories).length == 0) {
@@ -137,6 +182,10 @@ class Header extends React.Component {
       </div>
     );
 
+    const unreadDot = () => (
+      <span className="unreadDot"></span>
+   );
+
     const accountLinks = () => (
       <div className="link-holder">
         {accountSettings()}
@@ -151,6 +200,7 @@ class Header extends React.Component {
             <Link className="link menu-hide" to="/conversations">
               Messages
             </Link>
+            {this.state.hasUnreadMessages ? unreadDot() : null}
             <Link className="link menu-hide" to="/items/new">
               Sell on Unify
             </Link>

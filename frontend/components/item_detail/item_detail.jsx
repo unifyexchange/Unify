@@ -19,7 +19,7 @@ class ItemDetail extends React.Component {
         </div>
         <div className="item-show-detail-row">
           <h4 className="item-show-detail-row-title">Condition</h4>
-          <h4 className="item-show-detail-row-value">{item.condition.name}</h4>
+          <h4 className="item-show-detail-row-value">{item.condition_name}</h4>
         </div>
 
         <div className="item-show-detail-row">

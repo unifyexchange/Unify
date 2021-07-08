@@ -3,7 +3,9 @@ import merge from "lodash/merge";
 import {
   RECEIVE_CONVERSATION,
   RECEIVE_ALL_CONVERSATIONS,
+  RECEIVE_ALL_CONVERSATIONSV2,
   REMOVE_CONVERSATION,
+  
 } from "./../actions/conversation_actions";
 
 const conversationsReducer = (state = {}, action) => {
@@ -11,6 +13,8 @@ const conversationsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_CONVERSATIONS:
       return merge({}, state, action.conversations);
+    case RECEIVE_ALL_CONVERSATIONSV2:
+      return merge({}, state, action.conversationsV2);
     case RECEIVE_CONVERSATION:
       return merge({}, state, action.conversation);
     case REMOVE_CONVERSATION:

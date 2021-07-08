@@ -30,6 +30,23 @@ class ItemShow extends React.Component {
     };
 
     this.handleMessageSubmit = this.handleMessageSubmit.bind(this);
+
+    
+  }
+
+  test = async () => {
+    const x = await firebase.firestore().collection("conversations").where('users', 'array-contains', {id: 1, name: "Admin Admin"}).get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+      });
+ 
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+
     
   }
 
@@ -71,6 +88,7 @@ class ItemShow extends React.Component {
     const { currentUser } = this.props;
     const { messageText, item } = this.state;
 
+
     console.log(item);
     //Ludovico:
 
@@ -79,7 +97,9 @@ class ItemShow extends React.Component {
       const senderID = currentUser.id;
       const recipientID = item.user_id;
       const message = {senderID: senderID, message: messageText, timestamp: Date.now()};
-      const itemData = {id: item.id, imageURL: item.image_urls[0]};
+      const itemData = item;
+
+
 
       const conversationExists = await this.doesConversationExist(senderID, recipientID);
       if (conversationExists) {
@@ -87,7 +107,7 @@ class ItemShow extends React.Component {
         await this.sendMessage(senderID, recipientID, message, itemData);
       } else {
         //Create conversation and send message
-        const userA = {id: currentUser.id, name: `${currentUser.first_name} ${currentUser.last_name}`};
+        const userA = {id: currentUser.id, name: this.getCurrentUserName(currentUser)};
         const userB = {id: item.user_id, name: item.seller_name};
 
         await this.createConversationWithMessage(userA, userB, message, itemData);
@@ -96,6 +116,10 @@ class ItemShow extends React.Component {
 
       this.props.history.push("/conversations");
     } 
+  }
+
+  getCurrentUserName = (currentUser) => {
+    return `${currentUser.first_name} ${currentUser.last_name}`;
   }
 
   sendMessage = async (userAID, userBID, message, itemData) => {

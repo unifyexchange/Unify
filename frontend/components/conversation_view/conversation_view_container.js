@@ -4,17 +4,19 @@ import {
   createConversation,
   removeConversation,
   selectConversation,
+  updateConversationsV2,
 } from "./../../actions/conversation_actions";
 import ConversationView from "./conversation_view";
 
 const mapStateToProps = ({
   session,
-  entities: { users, conversations, selectedConversation },
+  entities: { users, conversations, conversationsV2, selectedConversation },
 }) => {
   return {
     currentUser: users[session.id],
     conversations: Object.values(conversations),
     selectedConversation: selectedConversation,
+    conversationsV2: Object.values(conversationsV2),
   };
 };
 
@@ -32,6 +34,9 @@ const mapDispatchToProps = (dispatch) => {
     selectConversation: (conversation) => {
       return dispatch(selectConversation(conversation));
     },
+    updateConversationsV2: (conversations) => {
+      return dispatch(updateConversationsV2(conversations));
+    }
   };
 };
 

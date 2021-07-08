@@ -1,5 +1,6 @@
 import * as APIUtil from "../util/conversation_api_util";
 
+export const RECEIVE_ALL_CONVERSATIONSV2 = "RECEIVE_ALL_CONVERSATIONSV2";
 export const RECEIVE_ALL_CONVERSATIONS = "RECEIVE_ALL_CONVERSATIONS";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
 export const REMOVE_CONVERSATION = "REMOVE_CONVERSATION";
@@ -20,6 +21,7 @@ export const receiveConversation = (conversation) => {
 };
 
 export const receiveSelectedConversation = (conversation) => {
+  console.log("recieve SEL 1");
   return {
     type: RECEIVE_SELECTED_CONVERSATION,
     conversation: conversation,
@@ -30,6 +32,13 @@ export const removeConversation = (conversation) => {
   return {
     type: REMOVE_CONVERSATION,
     conversation: conversation,
+  };
+};
+
+export const receiveAllConversationsV2 = (conversations) => {
+  return {
+    type: RECEIVE_ALL_CONVERSATIONSV2,
+    conversationsV2: conversations,
   };
 };
 
@@ -61,7 +70,15 @@ export const removeSelectedConversation = (conversationId) => {
 };
 
 export const selectConversation = (conversation) => {
+  
   return (dispatch) => {
     return dispatch(receiveSelectedConversation(conversation));
+  };
+};
+
+
+export const updateConversationsV2 = (conversations) => {
+  return (dispatch) => {
+      return dispatch(receiveAllConversationsV2(conversations));
   };
 };
