@@ -8,6 +8,15 @@ import './styles.scss';
 import  {confirmAlert } from '../../util/alerts'
 import { adminEmails } from "../../util/adminAccount"
 
+// const firebase = require("firebase/app");
+import  firebase  from 'firebase/app';
+import 'firebase/firestore'
+import 'firebase/storage'
+require('firebase/firestore')
+require('firebase/storage')
+// require('@firebase/firestore')
+
+
 class ItemShow extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +30,7 @@ class ItemShow extends React.Component {
     };
 
     this.handleMessageSubmit = this.handleMessageSubmit.bind(this);
+    
   }
 
   componentDidMount() {
@@ -57,20 +67,75 @@ class ItemShow extends React.Component {
       });
   }
 
-  handleMessageSubmit() {
+  handleMessageSubmit = async () => {
     const { currentUser } = this.props;
     const { messageText, item } = this.state;
 
-    const conversationObject = {
-      sender_id: currentUser.id,
-      recipient_id: item.user_id,
-      item_id: item.id,
-      body: messageText,
-    };
-    this.props.createConversation(conversationObject);
+    console.log(item);
+    //Ludovico:
 
-    this.props.history.push("/conversations");
+    if (messageText && messageText.replace(/\s/g, '').length) {
+      //Message is valid
+      const senderID = currentUser.id;
+      const recipientID = item.user_id;
+      const message = {senderID: senderID, message: messageText, timestamp: Date.now()};
+      const itemData = {id: item.id, imageURL: item.image_urls[0]};
+
+      const conversationExists = await this.doesConversationExist(senderID, recipientID);
+      if (conversationExists) {
+        //Conversation already exists, send message
+        await this.sendMessage(senderID, recipientID, message, itemData);
+      } else {
+        //Create conversation and send message
+        const userA = {id: currentUser.id, name: `${currentUser.first_name} ${currentUser.last_name}`};
+        const userB = {id: item.user_id, name: item.seller_name};
+
+        await this.createConversationWithMessage(userA, userB, message, itemData);
+      }
+
+
+      this.props.history.push("/conversations");
+    } 
   }
+
+  sendMessage = async (userAID, userBID, message, itemData) => {
+    const conversationKey = this.createConversationKey(userAID, userBID);
+
+    await firebase.firestore().collection('conversations').doc(conversationKey)
+      .update({
+        messages: firebase.firestore.FieldValue.arrayUnion(message),
+        recipientHasRead: false,
+        lastTimeStamp: Date.now(),
+        item: itemData
+      });
+  }
+
+  createConversationWithMessage = async (userA, userB, message, item) => {
+    console.log(userA, userB, message);
+    const conversationKey = this.createConversationKey(userA.id, userB.id);
+    await firebase.firestore().collection('conversations').doc(conversationKey)
+        .set({
+          messages: [message],
+          users: [userA, userB],
+          recipientHasRead: false,
+          lastTimeStamp: Date.now(),
+          item: item
+        })
+  }
+
+  doesConversationExist = async (userAID, userBID) => {
+    console.log("doesConvo");
+    const conversationKey = this.createConversationKey(userAID, userBID);
+    const conversation = await firebase.firestore().collection("conversations").doc(conversationKey).get();
+    return conversation.exists;
+  }
+
+  createConversationKey = (userAID, userBID) => {
+    return [userAID, userBID].sort().join(":")
+  }
+
+
+
 
   
   deleteItem = ()=>{
