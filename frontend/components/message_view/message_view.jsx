@@ -14,7 +14,7 @@ class MessageView extends React.Component {
       messageText: "",
     };
 
-    this.update = this.update.bind(this);
+    // this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -39,18 +39,7 @@ scrollToBottom = () => {
   e.keyCode === 13 ? this.handleSubmit(e) : this.setState({ messageText: e.target.value });
   }
   
-  update(e, field) {
-    console.log(e.keyCode);
-      if (e.keyCode == 13) {
-        
-        this.handleSubmit(e);
-      }
 
-      this.setState({
-        [field]: e.target.value,
-      });
-    
-  }
 
   handleSubmit(e) {
     e.preventDefault();

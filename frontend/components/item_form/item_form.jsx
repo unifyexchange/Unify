@@ -67,11 +67,59 @@ class ItemForm extends React.Component {
     );
   };
 
+
+
+
   update(field) {
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
       });
+
+  }
+
+  userTyping = (e, field) => {
+
+    if (e.currentTarget.value) {
+    if (isNaN(parseInt(e.currentTarget.value.charAt(e.currentTarget.value.length-1)))) {
+      if (e.currentTarget.value.length > 1) {
+        const price = parseInt(e.currentTarget.value.slice(1, e.currentTarget.value.length));
+        this.setState({ [field]: price });
+        document.getElementById('price').value = `$${price}`;
+      } else {
+        console.log("from guard2");
+        this.setState({ [field]: null });
+        document.getElementById('price').value = '';
+      }
+      return 
+    }
+    if (e.currentTarget.value.length > 6) {
+      const price = parseInt(e.currentTarget.value.slice(1, 7));
+      this.setState({ [field]: price });
+      document.getElementById('price').value = `$${price}`;
+      return 
+    }
+  }
+
+
+    if (e.currentTarget.value.charAt(0) === "$") {
+
+      if (e.currentTarget.value.slice(1)) {
+        const price = parseInt(e.currentTarget.value.slice(1));
+        this.setState({ [field]: price });
+        document.getElementById('price').value = `$${price}`;
+      }
+      
+    } else if (e.currentTarget.value) {
+      const price = parseInt(e.currentTarget.value);
+      this.setState({ [field]: price });
+      document.getElementById('price').value = `$${price}`;
+    }
+    
+
+
+
+ 
   }
 
   handleSubmit(e) {
@@ -204,16 +252,16 @@ class ItemForm extends React.Component {
                 ))}
               </datalist>
               <br />
-              <span className="dollar-sign">$</span>
               <input
-                type="number"
-                value={this.state.price}
-                onChange={this.update("price")}
+                type="text"
+                id="price"
+                // value={this.state.price}
+                onChange={ (e) => this.userTyping(e, "price")}
                 className="item-form-input price-input"
-                placeholder="0.00"
-                min="0.00"
-                max="10000.00"
-                step="0.01"
+                placeholder="$0.00"
+                // min="0.00"
+                // max="10000.00"
+                // step="0.01"
               />
               <br />
               {this.props.showSuccessModal === true ? (

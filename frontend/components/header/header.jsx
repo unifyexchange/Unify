@@ -82,16 +82,16 @@ class Header extends React.Component {
   }
 
   updateWindowDimensions() {
-    this.setState(
-      { width: window.innerWidth, height: window.innerHeight },
-      () => {
-        {
-          this.state.width < 1200
-            ? this.setState({ showMenu: false })
-            : this.setState({ showMenu: true });
-        }
-      }
-    );
+    // this.setState(
+    //   { width: window.innerWidth, height: window.innerHeight },
+    //   () => {
+    //     {
+    //       this.state.width < 1200
+    //         ? this.setState({ showMenu: false })
+    //         : this.setState({ showMenu: true });
+    //     }
+    //   }
+    // );
   }
 
   showMenu() {

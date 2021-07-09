@@ -65,6 +65,14 @@ class ItemFormEdit extends React.Component {
     }
   };
 
+  onFocus = (id) => {
+    this.setState({ [id]: "" });
+    document.getElementById(id).value = '';
+    document.getElementById(id).trigger(jQuery.Event('keyup', { keycode: 40 }))
+
+  }
+
+
   handleUpload = () => {
     const { image } = this.state;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
@@ -190,8 +198,9 @@ class ItemFormEdit extends React.Component {
                 </p>
               </div>
               <input
+                id="category"
                 list="categories"
-                onFocus={() => this.setState({ category: "" })}
+                onFocus={() => this.onFocus("category")}
                 value={category}
                 onChange={this.update("category")}
                 className="item-form-input"
@@ -229,8 +238,9 @@ class ItemFormEdit extends React.Component {
               />
               <br />
               <input
+                id="condition"
                 list="conditions"
-                onFocus={() => this.setState({ condition: "" })}
+                onFocus={() => this.onFocus("condition")}
                 value={condition}
                 onChange={this.update("condition")}
                 className="item-form-input"
@@ -242,13 +252,13 @@ class ItemFormEdit extends React.Component {
                 ))}
               </datalist>
               <br />
-              <span className="dollar-sign">$</span>
+
               <input
                 type="number"
                 value={price}
                 onChange={this.update("price")}
                 className="item-form-input price-input"
-                placeholder="0.00"
+                placeholder="$0.00"
                 min="0.00"
                 max="10000.00"
                 step="0.01"
