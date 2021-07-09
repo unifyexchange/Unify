@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     # Automatically assign user to Redlands which is the only school in the system
-    if valid_edu_email_address?(user_params[:email_address])
+    if true#valid_edu_email_address?(user_params[:email_address])
        @user.assign_attributes({ school: School.first } ) 
     else
       @user.errors.add(:base, "Must use a valid Redlands email address to register")
@@ -43,7 +43,7 @@ class Api::UsersController < ApplicationController
 
   def sendForgotPasswordEmail
     @user = User.find_by(email_address: params[:email])
-
+    print "IN FORGOT PSW", @user
     if @user
       VerificationMailer.forgotPassword(@user).deliver_now
       render json: "Success", status: 200

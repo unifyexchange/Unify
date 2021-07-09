@@ -1,32 +1,39 @@
 # Seed data for Unify
-
-User.destroy_all
-School.destroy_all
-Report.destroy_all
 Item.destroy_all
 ItemImage.destroy_all
 Condition.destroy_all
 Category.destroy_all
+Favorite.destroy_all
+Report.destroy_all
+Searchstring.destroy_all
 Conversation.destroy_all
 Message.destroy_all
-Favorite.destroy_all
-Searchstring.destroy_all
+School.destroy_all
+User.destroy_all
+
+
+
+
+
+
+
 
 # Create schools
 school = School.create(name: "University of Redlands", description: "The Universirt of Redlands is a private, non-profit university situated on 160 acres near downtown", institution_size: 3169, location: "Redlands, California", phone: "(909) 793-2121", logo_image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Funiversity_of_redlands_logo.png?alt=media&token=186257de-48e7-4eca-9454-1ccdcd9955a5")
 
 # Create users
 user1 = User.create(email_address: "admin@unify.com", is_verified: true, school_id: school.id, first_name: "Admin", last_name: "Admin", password: "password")
-user2 = User.create(email_address: "don@joinhandshake.com", school_id: school.id, first_name: "Don", last_name: "Sirivat", password: "password")
-user3 = User.create(email_address: "user1@redlands.edu", school_id: school.id, first_name: "Katie", last_name: "Krizan", password: "password")
-user4 = User.create(email_address: "rolex@redlands.edu", school_id: school.id, first_name: "Tobias", last_name: "Harris", password: "password")
-user5 = User.create(email_address: "funny@redlands.edu", school_id: school.id, first_name: "Eli", last_name: "Gitelman", password: "password")
-user6 = User.create(email_address: "skycats@redlands.edu", school_id: school.id, first_name: "Aubrey", last_name: "Ellis", password: "password")
-user7 = User.create(email_address: "2134-945@redlands.edu", school_id: school.id, first_name: "Claire", last_name: "Rosenberg", password: "password")
-user8 = User.create(email_address: "shayna123@redlands.edu", school_id: school.id, first_name: "Shayna", last_name: "Denu", password: "password")
-user9 = User.create(email_address: "realperson@redlands.edu", school_id: school.id, first_name: "Blake", last_name: "Mohammad", password: "password")
-user10 = User.create(email_address: "admin@redlands.edu", school_id: school.id, first_name: "Victory", last_name: "Patryk", password: "password")
-user11 = User.create(email_address: "ryanmcduffie07@gmail.com", is_verified: true, school_id: school.id, first_name: "Ryan", last_name: "McDuffie", password: "password")
+# user2 = User.create(email_address: "don@joinhandshake.com", school_id: school.id, first_name: "Don", last_name: "Sirivat", password: "password")
+# user3 = User.create(email_address: "user1@redlands.edu", school_id: school.id, first_name: "Katie", last_name: "Krizan", password: "password")
+# user4 = User.create(email_address: "rolex@redlands.edu", school_id: school.id, first_name: "Tobias", last_name: "Harris", password: "password")
+# user5 = User.create(email_address: "funny@redlands.edu", school_id: school.id, first_name: "Eli", last_name: "Gitelman", password: "password")
+# user6 = User.create(email_address: "skycats@redlands.edu", school_id: school.id, first_name: "Aubrey", last_name: "Ellis", password: "password")
+# user7 = User.create(email_address: "2134-945@redlands.edu", school_id: school.id, first_name: "Claire", last_name: "Rosenberg", password: "password")
+# user8 = User.create(email_address: "shayna123@redlands.edu", school_id: school.id, first_name: "Shayna", last_name: "Denu", password: "password")
+# user9 = User.create(email_address: "realperson@redlands.edu", school_id: school.id, first_name: "Blake", last_name: "Mohammad", password: "password")
+# user10 = User.create(email_address: "admin@redlands.edu", school_id: school.id, first_name: "Victory", last_name: "Patryk", password: "password")
+# user11 = User.create(email_address: "ryanmcduffie07@gmail.com", is_verified: true, school_id: school.id, first_name: "Ryan", last_name: "McDuffie", password: "password")
+
 # Create categories
 electronics = Category.create(name: "Electronics", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Felectronics_category.png?alt=media&token=5466136c-46ad-426b-aa7b-f5d191b64a05")
 textbooks = Category.create(name: "Textbooks", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Ftextbooks_category.png?alt=media&token=b837df7b-ef7c-4db0-94cd-5a93ce41b461")
@@ -47,25 +54,25 @@ salvage_condition = Condition.create(name: "Salvage")
 
 # Create items
 item1 = Item.create(user_id: user1.id, name: "Fire TV Stick 4K with Alexa Voice Remote, streaming media player", subtitle: "The most powerful 4K streaming media stick with a Wi-Fi antenna", price: 35.00, description: "Launch and control content with the Alexa Voice Remote. Watch favorites from Netflix, YouTube, Prime Video, HBO, STARZ, SHOWTIME, and more, plus stream for free with Tubi, IMDb TV, and others.", condition_id: new_condition.id, category_id: electronics.id, school_id: school.id)
-item2 = Item.create(user_id: user2.id, name: "Apple iPhone 7 Plus - 32GB - Black (Unlocked) A1661 (CDMA + GSM)", subtitle: "Item has passed 27-point inspection & is 100% fully functional & unlocked", price: 250.00, description: "This unlocked, black iPhone 7 Plus by Apple featuring a 5.5” retina display is powered by a 2.23GHz Quad Core processor, 3GB of RAM and offers 32GB of storage capacity. It comes with a 12MP primary camera, 7MP secondary camera and built-in lithium-ion battery. Additional features include a fingerprint sensor and water-resistant casing with oleophobic coating. This device is compatible with Straight Talk, Boost Mobile, Verizon, U.S. Cellular, TracFone, Xfinity, Sprint, Virgin Mobile Carriers.", condition_id: mint_condition.id, category_id: electronics.id, school_id: school.id)
-item3 = Item.create(user_id: user3.id, name: "Samsung Galaxy Watch Active R500 - Black 4GB (Bluetooth 4.2) ", subtitle: "Barometer, Accelerometer, Water-Resistant, Sleep Monitor, Heart Rate Monitor, Gyroscope, GPS, Ambient Light Sensor", price: 375.00, description: "Brand new smart watch", condition_id: new_condition.id, category_id: electronics.id, school_id: school.id)
-item4 = Item.create(user_id: user4.id, name: "Guyton and Hall Textbook of Medical Physiology (Guyton Physiology)", subtitle: "13th Edition", price: 25.00, description: "The 13th edition of Guyton and Hall Textbook of Medical Physiology continues this bestselling title's long tradition as the world’s foremost medical physiology textbook. Unlike other textbooks on this topic, this clear and comprehensive guide has a consistent, single-author voice and focuses on the content most relevant to clinical and pre-clinical students. The detailed but lucid text is complemented by didactic illustrations that summarize key concepts in physiology and pathophysiology.", condition_id: good_condition.id, category_id: textbooks.id, school_id: school.id)
-item5 = Item.create(user_id: user5.id, name: "Digital Marketing Essentials: A Comprehensive Digital Marketing Textbook ", subtitle: "Great condition", price: 50.00, description: "Textbook for Business 101", condition_id: good_condition.id, category_id: textbooks.id, school_id: school.id)
-item6 = Item.create(user_id: user6.id, name: "Business and Society: Stakeholders, Ethics, Public Policy (Irwin Accounting)", subtitle: "15th edition", price: 35.00, description: "The Fifteenth Edition of Business and Society: Stakeholders, Ethics, Public Policy draws on the latest research to address the challenges facing business organizations and their stakeholders. The text builds on its legacy of market leadership by reexamining central issues.", condition_id: fair_condition.id, category_id: textbooks.id, school_id: school.id)
-item7 = Item.create(user_id: user7.id, name: "Longines HydroConquest Black Dial Automatic Mens Watch", subtitle: "Awesome Swiss made automatic watch", price: 850.00, description: "Swiss automatic movement from Longines, a pinnacle in the watch making industry.", condition_id: good_condition.id, category_id: apparel.id, school_id: school.id)
-item8 = Item.create(user_id: user8.id, name: "LookbookStore Women's V Neck Mesh Panel Blouse 3/4 Bell Sleeve Loose Top Shirt", subtitle: "Super soft and comfortable", price: 15.00, description: "Casual wear or party, night out, summer holidays, going out and so on. Pair this women bell sleeves blouse with your ripped jeans pants for a stunning look.", condition_id: mint_condition.id, category_id: apparel.id, school_id: school.id)
-item9 = Item.create(user_id: user9.id, name: "Drawstring Waist Long Workout Yoga Legging Active Pant with Pocket", subtitle: "100% Cotton. Soft and comfortable fabric", price: 10.00, description: "Breathable lightweight fabric. Perfect for yoga, jogger, workout, gym, run errands or casual wear", condition_id: mint_condition.id, category_id: apparel.id, school_id: school.id)
-item10 = Item.create(user_id: user10.id, name: "Hamilton tickets", subtitle: "Two tickets this Saturday", price: 200.00, description: "Super close seats! Can't go anymore so selling these tickets", condition_id: new_condition.id, category_id: tickets.id, school_id: school.id)
+item2 = Item.create(user_id: user1.id, name: "Apple iPhone 7 Plus - 32GB - Black (Unlocked) A1661 (CDMA + GSM)", subtitle: "Item has passed 27-point inspection & is 100% fully functional & unlocked", price: 250.00, description: "This unlocked, black iPhone 7 Plus by Apple featuring a 5.5” retina display is powered by a 2.23GHz Quad Core processor, 3GB of RAM and offers 32GB of storage capacity. It comes with a 12MP primary camera, 7MP secondary camera and built-in lithium-ion battery. Additional features include a fingerprint sensor and water-resistant casing with oleophobic coating. This device is compatible with Straight Talk, Boost Mobile, Verizon, U.S. Cellular, TracFone, Xfinity, Sprint, Virgin Mobile Carriers.", condition_id: mint_condition.id, category_id: electronics.id, school_id: school.id)
+item3 = Item.create(user_id: user1.id, name: "Samsung Galaxy Watch Active R500 - Black 4GB (Bluetooth 4.2) ", subtitle: "Barometer, Accelerometer, Water-Resistant, Sleep Monitor, Heart Rate Monitor, Gyroscope, GPS, Ambient Light Sensor", price: 375.00, description: "Brand new smart watch", condition_id: new_condition.id, category_id: electronics.id, school_id: school.id)
+item4 = Item.create(user_id: user1.id, name: "Guyton and Hall Textbook of Medical Physiology (Guyton Physiology)", subtitle: "13th Edition", price: 25.00, description: "The 13th edition of Guyton and Hall Textbook of Medical Physiology continues this bestselling title's long tradition as the world’s foremost medical physiology textbook. Unlike other textbooks on this topic, this clear and comprehensive guide has a consistent, single-author voice and focuses on the content most relevant to clinical and pre-clinical students. The detailed but lucid text is complemented by didactic illustrations that summarize key concepts in physiology and pathophysiology.", condition_id: good_condition.id, category_id: textbooks.id, school_id: school.id)
+item5 = Item.create(user_id: user1.id, name: "Digital Marketing Essentials: A Comprehensive Digital Marketing Textbook ", subtitle: "Great condition", price: 50.00, description: "Textbook for Business 101", condition_id: good_condition.id, category_id: textbooks.id, school_id: school.id)
+item6 = Item.create(user_id: user1.id, name: "Business and Society: Stakeholders, Ethics, Public Policy (Irwin Accounting)", subtitle: "15th edition", price: 35.00, description: "The Fifteenth Edition of Business and Society: Stakeholders, Ethics, Public Policy draws on the latest research to address the challenges facing business organizations and their stakeholders. The text builds on its legacy of market leadership by reexamining central issues.", condition_id: fair_condition.id, category_id: textbooks.id, school_id: school.id)
+item7 = Item.create(user_id: user1.id, name: "Longines HydroConquest Black Dial Automatic Mens Watch", subtitle: "Awesome Swiss made automatic watch", price: 850.00, description: "Swiss automatic movement from Longines, a pinnacle in the watch making industry.", condition_id: good_condition.id, category_id: apparel.id, school_id: school.id)
+item8 = Item.create(user_id: user1.id, name: "LookbookStore Women's V Neck Mesh Panel Blouse 3/4 Bell Sleeve Loose Top Shirt", subtitle: "Super soft and comfortable", price: 15.00, description: "Casual wear or party, night out, summer holidays, going out and so on. Pair this women bell sleeves blouse with your ripped jeans pants for a stunning look.", condition_id: mint_condition.id, category_id: apparel.id, school_id: school.id)
+item9 = Item.create(user_id: user1.id, name: "Drawstring Waist Long Workout Yoga Legging Active Pant with Pocket", subtitle: "100% Cotton. Soft and comfortable fabric", price: 10.00, description: "Breathable lightweight fabric. Perfect for yoga, jogger, workout, gym, run errands or casual wear", condition_id: mint_condition.id, category_id: apparel.id, school_id: school.id)
+item10 = Item.create(user_id: user1.id, name: "Hamilton tickets", subtitle: "Two tickets this Saturday", price: 200.00, description: "Super close seats! Can't go anymore so selling these tickets", condition_id: new_condition.id, category_id: tickets.id, school_id: school.id)
 item11 = Item.create(user_id: user1.id, name: "Leather Futon Sofa Bed Fold Up & Down Recliner Couch with Cup Holders", subtitle: "Black futon with real faux leather", price: 80.00, description: "Make a quick guest bed for visitors with a fully reclining backrest and removable armrests", condition_id: fair_condition.id, category_id: furniture.id, school_id: school.id)
-item12 = Item.create(user_id: user2.id, name: "Extra Wide Dresser Storage Tower", subtitle: "Sturdy Steel Frame, Wood Top, Easy Pull Fabric Bins", price: 25.00, description: "Features 5 removable drawers; Use in or out of the closet and keep clutter under control by storing all of your clothing and accessories in one convenient place; Store and organize workout gear, leggings, yoga pants, sweaters, linens and more", condition_id: fair_condition.id, category_id: furniture.id, school_id: school.id)
-item13 = Item.create(user_id: user3.id, name: "12 Inch Chime Express Memory Foam Mattress", subtitle: "Free! Super comfy mattress", price: 0.0, description: "Free memory foam mattress. Just need to pick up from dorms", condition_id: good_condition.id, category_id: furniture.id, school_id: school.id)
-item14 = Item.create(user_id: user4.id, name: "New York Biology Dead Sea Mud Mask for Face and Body", subtitle: "Spa Quality Pore Reducer for Acne, Blackheads and Oily Skin", price: 10.0, description: "works for all skin types, including dry, normal, oily, combination, sensitive, and irritated. This daily acne treatment has been designed to be highly effective yet gentle enough for everyday use.", condition_id: new_condition.id, category_id: beauty.id, school_id: school.id)
-item15 = Item.create(user_id: user5.id, name: "Gold Whey Protein", subtitle: "Brand new, unopened. Best flavor", price: 30.00, description: "OPTIMUM NUTRITION'S GOLD STANDARD 100% Whey uses pure Whey Protein Isolates as the primary ingredient. Combined with ultra-filtered whey protein concentrate, each serving provides 24 grams of all-whey protein and 5.5 grams of naturally occurring Branched Chain Amino Acids (BCAAs) which are prized by athletes for their muscle building qualities. With more than 20 tempting flavors to choose from, ON GOLD STANDARD 100% Whey gives you plenty of ways to keep workout recovery interesting.", condition_id: new_condition.id, category_id: beauty.id, school_id: school.id)
-item16 = Item.create(user_id: user6.id, name: "2013 Jeep Wrangler Sahara", subtitle: "100556 miles", price: 9000.0, description: "5 speed automatic with a premium sound system. Drives great! Just don't really use it anymore so need to get rid of it.", condition_id: fair_condition.id, category_id: other.id, school_id: school.id)
-item17 = Item.create(user_id: user7.id, name: "Noise Cancelling Headphones Bluetooth Headphones", subtitle: "Microphone Deep Bass Wireless Headphones Over Ear, Comfortable Protein Earpads, 30 Hours Playtime", price: 25.00, description: "Professional Active Noise Cancelling Technology. Significant noise reduction for travel, work and anywhere in between. Advanced active noise reduction technology quells airplane cabin noise, city traffic or a busy office, makes you focus on what you want to hear,enjoy your music, movies and videos. The noise cancellation function can work well both in wire and wireless mode.", condition_id: fair_condition.id, category_id: electronics.id, school_id: school.id)
-item18 = Item.create(user_id: user8.id, name: "Nintendo switch with 2 free games", subtitle: "Comes with Mario Kart", price: 175.00, description: "Introducing Nintendo Switch, the new home video game system from Nintendo. In addition to providing single and multiplayer thrills at home, the Nintendo Switch system can be taken on the go so players can enjoy a full home console experience anytime, anywhere. The mobility of a handheld is now added to the power of a home gaming system, with unprecedented new play styles brought to life by the two new Joy-Con controllers.", condition_id: good_condition.id, category_id: electronics.id, school_id: school.id)
-item19 = Item.create(user_id: user9.id, name: "Integrated Chinese: Simplified Characters Textbook", subtitle: "Level 1 Part 1", price: 20.0, description: "I think I used it once", condition_id: mint_condition.id, category_id: textbooks.id, school_id: school.id)
-item20 = Item.create(user_id: user10.id, name: "High Waist Yoga Pants", subtitle: "High waisted", price: 15.0, description: "Super comfy, only worned a couple of times", condition_id: mint_condition.id, category_id: apparel.id, school_id: school.id)
+item12 = Item.create(user_id: user1.id, name: "Extra Wide Dresser Storage Tower", subtitle: "Sturdy Steel Frame, Wood Top, Easy Pull Fabric Bins", price: 25.00, description: "Features 5 removable drawers; Use in or out of the closet and keep clutter under control by storing all of your clothing and accessories in one convenient place; Store and organize workout gear, leggings, yoga pants, sweaters, linens and more", condition_id: fair_condition.id, category_id: furniture.id, school_id: school.id)
+item13 = Item.create(user_id: user1.id, name: "12 Inch Chime Express Memory Foam Mattress", subtitle: "Free! Super comfy mattress", price: 0.0, description: "Free memory foam mattress. Just need to pick up from dorms", condition_id: good_condition.id, category_id: furniture.id, school_id: school.id)
+item14 = Item.create(user_id: user1.id, name: "New York Biology Dead Sea Mud Mask for Face and Body", subtitle: "Spa Quality Pore Reducer for Acne, Blackheads and Oily Skin", price: 10.0, description: "works for all skin types, including dry, normal, oily, combination, sensitive, and irritated. This daily acne treatment has been designed to be highly effective yet gentle enough for everyday use.", condition_id: new_condition.id, category_id: beauty.id, school_id: school.id)
+item15 = Item.create(user_id: user1.id, name: "Gold Whey Protein", subtitle: "Brand new, unopened. Best flavor", price: 30.00, description: "OPTIMUM NUTRITION'S GOLD STANDARD 100% Whey uses pure Whey Protein Isolates as the primary ingredient. Combined with ultra-filtered whey protein concentrate, each serving provides 24 grams of all-whey protein and 5.5 grams of naturally occurring Branched Chain Amino Acids (BCAAs) which are prized by athletes for their muscle building qualities. With more than 20 tempting flavors to choose from, ON GOLD STANDARD 100% Whey gives you plenty of ways to keep workout recovery interesting.", condition_id: new_condition.id, category_id: beauty.id, school_id: school.id)
+item16 = Item.create(user_id: user1.id, name: "2013 Jeep Wrangler Sahara", subtitle: "100556 miles", price: 9000.0, description: "5 speed automatic with a premium sound system. Drives great! Just don't really use it anymore so need to get rid of it.", condition_id: fair_condition.id, category_id: other.id, school_id: school.id)
+item17 = Item.create(user_id: user1.id, name: "Noise Cancelling Headphones Bluetooth Headphones", subtitle: "Microphone Deep Bass Wireless Headphones Over Ear, Comfortable Protein Earpads, 30 Hours Playtime", price: 25.00, description: "Professional Active Noise Cancelling Technology. Significant noise reduction for travel, work and anywhere in between. Advanced active noise reduction technology quells airplane cabin noise, city traffic or a busy office, makes you focus on what you want to hear,enjoy your music, movies and videos. The noise cancellation function can work well both in wire and wireless mode.", condition_id: fair_condition.id, category_id: electronics.id, school_id: school.id)
+item18 = Item.create(user_id: user1.id, name: "Nintendo switch with 2 free games", subtitle: "Comes with Mario Kart", price: 175.00, description: "Introducing Nintendo Switch, the new home video game system from Nintendo. In addition to providing single and multiplayer thrills at home, the Nintendo Switch system can be taken on the go so players can enjoy a full home console experience anytime, anywhere. The mobility of a handheld is now added to the power of a home gaming system, with unprecedented new play styles brought to life by the two new Joy-Con controllers.", condition_id: good_condition.id, category_id: electronics.id, school_id: school.id)
+item19 = Item.create(user_id: user1.id, name: "Integrated Chinese: Simplified Characters Textbook", subtitle: "Level 1 Part 1", price: 20.0, description: "I think I used it once", condition_id: mint_condition.id, category_id: textbooks.id, school_id: school.id)
+item20 = Item.create(user_id: user1.id, name: "High Waist Yoga Pants", subtitle: "High waisted", price: 15.0, description: "Super comfy, only worned a couple of times", condition_id: mint_condition.id, category_id: apparel.id, school_id: school.id)
 
 # Create item images
 ItemImage.create(item_id: item1.id, image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fitem1_1.png?alt=media&token=1d061fa1-dfe2-437c-97ad-843ce050aff0")
@@ -143,13 +150,13 @@ ItemImage.create(item_id: item20.id, image_url: "https://firebasestorage.googlea
 
 # Create conversations
 
-conversation1 = Conversation.create(sender_id: user2.id, recipient_id: user1.id, item_id: item1.id)
-conversation2 = Conversation.create(sender_id: user2.id, recipient_id: user3.id, item_id: item3.id)
-conversation3 = Conversation.create(sender_id: user2.id, recipient_id: user4.id, item_id: item4.id)
-conversation4 = Conversation.create(sender_id: user2.id, recipient_id: user5.id, item_id: item5.id)
-conversation5 = Conversation.create(sender_id: user2.id, recipient_id: user6.id, item_id: item6.id)
-conversation6 = Conversation.create(sender_id: user2.id, recipient_id: user7.id, item_id: item7.id)
-conversation7 = Conversation.create(sender_id: user2.id, recipient_id: user8.id, item_id: item8.id)
+# conversation1 = Conversation.create(sender_id: user2.id, recipient_id: user1.id, item_id: item1.id)
+# conversation2 = Conversation.create(sender_id: user2.id, recipient_id: user3.id, item_id: item3.id)
+# conversation3 = Conversation.create(sender_id: user2.id, recipient_id: user4.id, item_id: item4.id)
+# conversation4 = Conversation.create(sender_id: user2.id, recipient_id: user5.id, item_id: item5.id)
+# conversation5 = Conversation.create(sender_id: user2.id, recipient_id: user6.id, item_id: item6.id)
+# conversation6 = Conversation.create(sender_id: user2.id, recipient_id: user7.id, item_id: item7.id)
+# conversation7 = Conversation.create(sender_id: user2.id, recipient_id: user8.id, item_id: item8.id)
 
 # Create messages
 

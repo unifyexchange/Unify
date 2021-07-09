@@ -88,7 +88,7 @@ class SignupForm extends React.Component {
               placeholder="Password"
             />
             <br />
-
+            
             <div>
               <div class="box">
                 <input
