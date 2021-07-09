@@ -86,7 +86,7 @@ class Header extends React.Component {
       { width: window.innerWidth, height: window.innerHeight },
       () => {
         {
-          this.state.width < 846
+          this.state.width < 1200
             ? this.setState({ showMenu: false })
             : this.setState({ showMenu: true });
         }
