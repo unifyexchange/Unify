@@ -32,19 +32,20 @@ class ChangePasswordForm extends React.Component {
   forgotPasswordTapped = () => {
     this.forgotPassword = true
 
-    // fetch(`http://localhost:3000/api/sendForgotPasswordEmail/${this.state.email_address}`)
-    // .then(res => res.json())
-    // .then(
-    //   this.update("email_address")
-    // )
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", `unify-311918.wl.r.appspot.com/api/sendForgotPasswordEmail`, true);
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://google.com');
-    xhr.send(JSON.stringify({
-        email: this.state.email_address
-    }));
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("POST", `/api/sendForgotPasswordEmail`, true);
+    // xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    // xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://google.com');
+    // xhr.send(JSON.stringify({
+    //     email: this.state.email_address
+    // }));
+
+    $.ajax({
+      url: `/api/sendForgotPasswordEmail`,
+      method: "POST",
+      data: { email: this.state.email_address },
+    });
 
     
     this.setState( {passwordAgain: this.state.passwordAgain, password: this.state.password} )
