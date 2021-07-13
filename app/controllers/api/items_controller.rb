@@ -1,6 +1,6 @@
 class Api::ItemsController < ApplicationController
   def index
-    @items = Item.where(school_id: current_user.school_id).reverse.first(50)
+    @items = Item.where(school_id: current_user.school_id).order("id DESC")
   end
 
   def show

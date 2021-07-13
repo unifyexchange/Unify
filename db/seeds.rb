@@ -1,10 +1,12 @@
 # Seed data for Unify
+Favorite.destroy_all
+Report.destroy_all
 Item.destroy_all
 ItemImage.destroy_all
 Condition.destroy_all
 Category.destroy_all
-Favorite.destroy_all
-Report.destroy_all
+
+
 Searchstring.destroy_all
 Conversation.destroy_all
 Message.destroy_all
