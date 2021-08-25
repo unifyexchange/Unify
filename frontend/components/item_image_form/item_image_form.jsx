@@ -30,7 +30,8 @@ export default class ItemImageForm extends React.Component {
 
   handleUpload = () => {
     const { image } = this.state;
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    const imageName = require("uuid").v4() + ".jpg";
+    const uploadTask = storage.ref(`images/${imageName}`).put(image);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -42,7 +43,7 @@ export default class ItemImageForm extends React.Component {
       () => {
         storage
           .ref("images")
-          .child(image.name)
+          .child(imageName)
           .getDownloadURL()
           .then((url) => {
             let images = this.state.images;
@@ -84,7 +85,7 @@ export default class ItemImageForm extends React.Component {
         <label for="file" className="image-upload-label">
           <img
             className="upload-image-icon"
-            src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fadd_image_icon.png?alt=media&token=a9771772-7005-424d-85a0-bf43aea20d26"
+            src="https://www.freeiconspng.com/uploads/upload-icon-3.png"
           />
         </label>
         {this.state.images.length > 0

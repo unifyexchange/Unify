@@ -187,7 +187,7 @@ class ItemShow extends React.Component {
       <img
         onClick={() => this.props.deleteFavorite(item.id)}
         className="favorite-heart-icon"
-        src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fgreen-heart.png?alt=media&token=e6d8ac33-d442-4a56-b270-e2adc6cf6f51"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_perfect_SVG_heart.svg/834px-A_perfect_SVG_heart.svg.png"
       />
     );
 
@@ -195,7 +195,7 @@ class ItemShow extends React.Component {
       <img
         onClick={() => this.props.addFavorite(item.id)}
         className="favorite-heart-icon"
-        src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fgrey-heart.png?alt=media&token=85b1c4d3-a474-41a7-a73b-181daba6bfa3"
+        src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2FgreyHeart.png?alt=media&token=35ea9664-714c-4d5b-a3a7-cf9c4f6d48c6"
       />
     );
 
@@ -274,12 +274,12 @@ class ItemShow extends React.Component {
           <div className="checkmark-section">
             <img
               className="checkmark-icon animated fadeInLeft delay-1s"
-              src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fpaper-plane.png?alt=media&token=b101be41-5941-4539-9546-f4d3106379bd"
+              src="https://www.pinclipart.com/picdir/big/201-2016537_send-message-icon-white-clipart-computer-icons-clip.png"
             />
           </div>
           <img
             className="message-modal-cancel-button"
-            src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fmultiply.png?alt=media&token=07dffd65-9427-48b3-991e-3f6c5f8c8d9a"
+            src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2Fxmark.png?alt=media&token=073afe08-465d-4600-92ac-5d4ee936a5a6"
             onClick={() => this.setState({ showModal: false })}
           />
           <h2 className="message-modal-header">

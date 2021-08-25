@@ -22,7 +22,7 @@ class SuccessModal extends React.Component {
           <div className="checkmark-section">
             <img
               className="checkmark-icon animated fadeInUp delay-1s"
-              src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fcheck-mark.png?alt=media&token=eb1d092a-5e55-44d8-9bf2-883e16d5b3e9"
+              src="https://www.freeiconspng.com/thumbs/checkmark-png/black-checkmark-png-4.png"
             />
           </div>
           <h2 className="success-modal-header">Great!</h2>

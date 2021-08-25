@@ -21,7 +21,7 @@ class ItemPreview extends React.Component {
       <img
         onClick={() => this.props.deleteFavorite(item.id)}
         className="favorite-heart-icon"
-        src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fgreen-heart.png?alt=media&token=e6d8ac33-d442-4a56-b270-e2adc6cf6f51"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_perfect_SVG_heart.svg/834px-A_perfect_SVG_heart.svg.png"
       />
     );
 
@@ -29,7 +29,7 @@ class ItemPreview extends React.Component {
       <img
         onClick={() => this.props.addFavorite(item.id)}
         className="favorite-heart-icon"
-        src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fgrey-heart.png?alt=media&token=85b1c4d3-a474-41a7-a73b-181daba6bfa3"
+        src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2FgreyHeart.png?alt=media&token=35ea9664-714c-4d5b-a3a7-cf9c4f6d48c6"
       />
     );
 

@@ -28,7 +28,7 @@ class Home extends React.Component {
           <img
             onClick={() => this.handleDownArrowClick()}
             className="home-down-arrow animated fadeInDown delay-1s"
-            src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fangle-arrow-down.png?alt=media&token=231fad07-ae77-4280-94f6-311e8f003912"
+            src="http://assets.stickpng.com/images/58f8bcf70ed2bdaf7c128307.png"
           />
         </div>
         <br className="home-break-line" />

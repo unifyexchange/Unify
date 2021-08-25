@@ -29,7 +29,7 @@ class ImageGalleryView extends React.Component {
       <div className="image-gallery-section">
         <img
           className="image-gallery-icon"
-          src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2Fgallery-removebg-preview.png?alt=media&token=517f91d7-30ea-4128-84f3-f6c4eccc0104"
+          src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.https://www.unify-exchange.com.com/o/images%2Fmaximaze.png?alt=media&token=bdfa9c0e-a25c-471f-88d8-f41bce351acd"
           onClick={this.toggleGallery}
         />
         <p className="image-gallery-button-text">Gallery View</p>

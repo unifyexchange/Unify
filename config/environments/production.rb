@@ -101,8 +101,8 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "unifyexchange@gmail.com",
-    password: "fnzmkomthcokxlbt"
+    password: "kyxrdajxwwoeqftf"
   }
 
-  config.action_mailer.default_url_options = {host: "unify-311918.wl.r.appspot.com"}
+  config.action_mailer.default_url_options = {host: "https://www.unify-exchange.com"}
 end

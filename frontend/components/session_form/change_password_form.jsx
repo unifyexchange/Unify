@@ -41,10 +41,12 @@ class ChangePasswordForm extends React.Component {
     //     email: this.state.email_address
     // }));
 
+    var email = this.state.email_address.toLowerCase()
+
     $.ajax({
       url: `/api/sendForgotPasswordEmail`,
       method: "POST",
-      data: { email: this.state.email_address },
+      data: { email: email },
     });
 
     

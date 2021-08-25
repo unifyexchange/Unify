@@ -21,7 +21,7 @@ User.destroy_all
 
 
 # Create schools
-school = School.create(name: "University of Redlands", description: "The Universirt of Redlands is a private, non-profit university situated on 160 acres near downtown", institution_size: 3169, location: "Redlands, California", phone: "(909) 793-2121", logo_image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Funiversity_of_redlands_logo.png?alt=media&token=186257de-48e7-4eca-9454-1ccdcd9955a5")
+school = School.create(name: "University of Redlands", description: "The University of Redlands is a private, non-profit university situated on 160 acres near downtown", institution_size: 3169, location: "Redlands, California", phone: "(909) 793-2121", logo_image_url: "https://sites.redlands.edu/contentassets/dc32a6051c47444fb923e6ca5aaa2841/rs25565_redlands_style1_1815_cmyk_300ppi.jpg")
 
 # Create users
 user1 = User.create(email_address: "admin@unify.com", is_verified: true, school_id: school.id, first_name: "Admin", last_name: "Admin", password: "password")
@@ -37,14 +37,14 @@ user1 = User.create(email_address: "admin@unify.com", is_verified: true, school_
 # user11 = User.create(email_address: "ryanmcduffie07@gmail.com", is_verified: true, school_id: school.id, first_name: "Ryan", last_name: "McDuffie", password: "password")
 
 # Create categories
-electronics = Category.create(name: "Electronics", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Felectronics_category.png?alt=media&token=5466136c-46ad-426b-aa7b-f5d191b64a05")
-textbooks = Category.create(name: "Textbooks", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Ftextbooks_category.png?alt=media&token=b837df7b-ef7c-4db0-94cd-5a93ce41b461")
-apparel = Category.create(name: "Apparel", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fapparel_category.png?alt=media&token=22a08df4-3f0e-4f42-873b-eaca6f4c7828")
-tickets = Category.create(name: "Tickets", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Ftickets_category.png?alt=media&token=e4ae9b76-c8b4-4e07-b20e-e372f7376ace")
-furniture = Category.create(name: "Furniture", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Ffurniture_category.png?alt=media&token=43cdd7aa-3744-47f3-be46-1b82181630c9")
-beauty = Category.create(name: "Beauty & Health", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fbeauty_category.png?alt=media&token=76dc0e26-a255-4039-9cfd-f6b4d1c04069")
-sports = Category.create(name: "Sports & Outdoor", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fsports_category.png?alt=media&token=376209f0-a075-48f2-a32f-403ec5f16456")
-other = Category.create(name: "Other", image_url: "https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fother_category.png?alt=media&token=538fc42a-3c8a-44ab-b385-b9bbde849643")
+electronics = Category.create(name: "Electronics", image_url: "http://pngimg.com/uploads/laptop/laptop_PNG101774.png")
+textbooks = Category.create(name: "Textbooks", image_url: "https://www.pngkit.com/png/full/201-2013057_algebraic-reasoning-high-school-textbook-texas-high-school.png")
+apparel = Category.create(name: "Apparel", image_url: "http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43bf78.png")
+tickets = Category.create(name: "Tickets", image_url: "https://static.vecteezy.com/system/resources/previews/001/189/271/non_2x/tickets-png.png")
+furniture = Category.create(name: "Furniture", image_url: "https://lh3.googleusercontent.com/proxy/8Iau67YUToJK5SM7rHQ-ueiYEsZ6jJ05JtZ1xybzkuV12qFPboeL_G3GdwVjPcH7otf7zCXGfsGcGq5nv2E1s2VBGUGuhiDKsBCSy4m8PmOs7WSIBUQs")
+beauty = Category.create(name: "Beauty & Health", image_url: "https://www.pngall.com/wp-content/uploads/2016/06/Makeup-Kit-Products-Free-Download-PNG.png")
+sports = Category.create(name: "Sports & Outdoor", image_url: "https://www.pngkit.com/png/full/83-832850_related-png-images-hiking-backpack-transparent-background.png")
+other = Category.create(name: "Other", image_url: "https://freepngimg.com/thumb/car/31510-9-car-transparent-background.png")
 
 # Create conditions
 new_condition = Condition.create(name: "New")

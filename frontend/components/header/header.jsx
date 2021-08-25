@@ -239,7 +239,7 @@ class Header extends React.Component {
         >
           <img
             className="logo-img"
-            src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Ffavicon.png?alt=media&token=f66966a8-2daf-46f7-98c5-1894f9aa3d6d"
+            src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2Ffavicon.png?alt=media&token=eec7cf61-1983-459e-81d5-ec46999eac55"
           />
         </div>
         {this.props.currentUser ? accountLinks() : sessionLinks()}

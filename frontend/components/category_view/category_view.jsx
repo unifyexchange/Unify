@@ -22,7 +22,7 @@ class CategoryView extends React.Component {
       <div className="category-view-section">
         <img
           className="remove-category-icon"
-          src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fleft-arrow.png?alt=media&token=8e44b88c-88d5-4e58-ac06-0b48e221f495"
+          src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2FleftArrow-removebg-preview.png?alt=media&token=2713a81f-d385-41f0-b6b0-1934e90893e0"
           onClick={() => this.props.goBack()}
         />
         <h2 className="category-view-header">

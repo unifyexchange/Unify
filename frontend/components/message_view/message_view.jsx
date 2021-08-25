@@ -124,7 +124,7 @@ scrollToBottom = () => {
             />
             <img
               className="upload-message-icon"
-              src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fsend-button.png?alt=media&token=1f3d18ce-9869-415e-ad6b-efcf24446a3b"
+              src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2FsendMsg.png?alt=media&token=2ff5cb81-4fad-4e6f-804b-654cf2e12f08"
               onClick={this.handleSubmit}
             />
           </div>
@@ -136,7 +136,7 @@ scrollToBottom = () => {
       <div className="empty-message-view-section">
         <img
           className="empty-message-icon"
-          src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fspeech-bubble.png?alt=media&token=a2d48c9f-c64c-4387-bf9e-e4e383020351"
+          src="https://firebasestorage.googleapis.com/v0/b/unify-309723.appspot.com/o/src%2Fspeechbub-removebg-preview.png?alt=media&token=2d5fcbbf-c765-4fbf-8dea-6909def19469"
         />
         <h3 className="empty-message-text">
           Select a conversation on the left to start messaging

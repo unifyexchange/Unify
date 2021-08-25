@@ -103,7 +103,7 @@ test:
   username: postgres
   password: 15006221444
   database: postgres-database
-  host: /cloudsql/unify-311918:us-west2:unify-sql
+  host: /cloudsql/unify-309723:us-west2:unify-sql
 
 production:
   adapter: postgresql
@@ -112,6 +112,6 @@ production:
   username: postgres
   password: 15006221444
   database: postgres-database
-  host: /cloudsql/unify-311918:us-west2:unify-sql
+  host: /cloudsql/unify-309723:us-west2:unify-sql
 
-  #/System/Volumes/Data/cloudsql/unify-311918:us-west2:unify-sql
+  #/System/Volumes/Data/cloudsql/unify-309723:us-west2:unify-sql

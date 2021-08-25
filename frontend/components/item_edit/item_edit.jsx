@@ -75,7 +75,8 @@ class ItemFormEdit extends React.Component {
 
   handleUpload = () => {
     const { image } = this.state;
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    const imageName = require("uuid").v4() + ".jpg";
+    const uploadTask = storage.ref(`images/${imageName}`).put(image);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -87,7 +88,7 @@ class ItemFormEdit extends React.Component {
       () => {
         storage
           .ref("images")
-          .child(image.name)
+          .child(imageName)
           .getDownloadURL()
           .then((url) => {
             let images = this.state.images;
@@ -96,6 +97,7 @@ class ItemFormEdit extends React.Component {
             this.setState({
               images: images,
             });
+
           });
       }
     );
@@ -167,7 +169,7 @@ class ItemFormEdit extends React.Component {
       <div className="image-upload-container">
       <input className="image-upload-input" type="file" id="file" onChange={this.handleChange} />
       <label htmlFor="file" className="image-upload-label">
-        <img className="upload-image-icon" src="https://firebasestorage.googleapis.com/v0/b/unify-aaba7.appspot.com/o/images%2Fadd_image_icon.png?alt=media&token=a9771772-7005-424d-85a0-bf43aea20d26"/>
+        <img className="upload-image-icon" src="https://www.freeiconspng.com/uploads/upload-icon-3.png"/>
       </label>
       <h3 className="num-img-uploaded-text">{images.length} image(s) uploaded</h3>
       {this.state.images.length > 0 ? imageGallerySection() : emptyImageSection()}
