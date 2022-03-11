@@ -201,8 +201,9 @@ class Header extends React.Component {
               Messages
             </Link>
             {this.state.hasUnreadMessages ? unreadDot() : null}
-            <Link className="link menu-hide" to="/items/new">
-              Sell on Unify
+            <Link className="link menu-hide " to="/items/new">
+              <img className="icon" src="/images/plus sign.png" alt="plus-sign" width="18px"/>
+              Post an Ad
             </Link>
             <Link className="link menu-hide" to="/about-us">
               About
@@ -212,7 +213,7 @@ class Header extends React.Component {
               className="account-button menu-hide link"
               onClick={this.showMenu}
             >
-              My Account
+              <img className="icon user-icon" src="/images/user_icon.png" alt="user-icon" width="30px" />
             </button>
           </span>
         </hgroup>

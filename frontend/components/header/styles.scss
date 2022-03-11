@@ -46,6 +46,15 @@
   color: #00b248;
 }
 
+.icon{
+  vertical-align:middle;
+  padding-bottom: 4px;
+}
+
+.user-icon{
+  padding-bottom: 10px;
+}
+
 .signup-link {
   background-color: #00b248;
   border-radius: 5px;
@@ -228,7 +237,7 @@
   z-index: 1;
   position: absolute;
   right: 5%;
-  top: 40%;
+  top: 20%;
 
 }
 
@@ -239,7 +248,6 @@
   right: 10%;
   height: 20px;
 }
-
 
 
 @media only screen and (max-width: 1200px) {
