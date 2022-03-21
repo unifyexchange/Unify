@@ -202,7 +202,7 @@ class Header extends React.Component {
             </Link>
             {this.state.hasUnreadMessages ? unreadDot() : null}
             <Link className="link menu-hide " to="/items/new">
-              <img className="icon" src="/images/plus sign.png" alt="plus-sign" width="18px"/>
+              <img className="icon" src="/images/new_post.png" alt="plus-sign" width="18px"/>
               Post an Ad
             </Link>
             <Link className="link menu-hide" to="/about-us">

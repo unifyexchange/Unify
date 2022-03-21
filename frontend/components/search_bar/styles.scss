@@ -36,16 +36,19 @@ input:-ms-input-placeholder {
 }
 
 .search-bar {
-  width: 25%;
+  max-width: 25%;
+  min-width: 2%;
+  display: inline-block;
   overflow: hidden;
   position: fixed;
   top: 0;
   left: 10%;
   margin-top: 15px;
-  border: 1px solid #e4e4e4;
+  //border: 1px solid #e4e4e4;
   border-radius: 7px;
   background-color: white;
   z-index: 99999999;
+  transition: all 100ms ease-in-out;
 }
 
 .search-bar:hover {
@@ -122,19 +125,20 @@ input:-ms-input-placeholder {
   display: inline-block;
   overflow: hidden;
   width: 80%;
+  
 }
 
 
 .search-input-button {
   height: 45px;
   padding: 1% 2%;
-  background-color: #00b248;
-  font-family: "Source Sans Pro", sans-serif;
-  color: white;
-  border: none;
-  font-size: 80%;
   cursor: pointer;
   float: right;
+}
+
+.search-icon{
+  width: 24px;
+  height: 24px;
 }
 
 @media only screen and (max-width: 1130px) {

@@ -1,4 +1,5 @@
 import React from "react";
+import { useState} from "react";
 import { withRouter } from "react-router-dom";
 
 import "./styles.scss";
@@ -9,12 +10,49 @@ class SearchBarWithButton extends React.Component {
     this.state = {
       search: "",
       item: {},
+      searchStyle: {
+        display: 'none'
+      },
+      searchBorderStyle: {
+        border: 'white'
+      }
     };
 
     this.updateSearch = this.updateSearch.bind(this);
     this.showSearchResults = this.showSearchResults.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this._handleIconFocus = this._handleIconFocus.bind(this);
+    //this._handleIconClick = this._handleIconClick.bind(this);
+    //this._handleTextBlur = this._handleTextBlur.bind(this);
   }
+
+  _handleIconFocus(e) {
+    e.preventDefault();
+    //console.log("hit focus");
+    this.setState({
+      searchStyle: {
+        display: 'inline-block'
+      },
+      searchBorderStyle: {
+        border: '1px solid #e4e4e4'
+      }
+    })
+  }
+  
+  // _handleTextBlur(e) {
+  //   e.preventDefault();
+  //   console.log("hit leave");
+  //   if (!this._searchBox.value && !this._searchBox.value.length > 0) 
+  //     this.setState({
+  //       searchboxStyle: {
+  //         display: 'none'
+  //       }
+  //     })
+  // }
+  
+  // _handleIconClick(e) {
+  //   e.preventDefault();
+  // }
 
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClick, false);
@@ -43,6 +81,16 @@ class SearchBarWithButton extends React.Component {
     } else {
       searchResults.classList.toggle("hidden-menu");
     }
+    console.log("hit leave");
+    if (!this._searchBox.value && !this._searchBox.value.length > 0) 
+      this.setState({
+        searchStyle: {
+          display: 'none'
+        },
+        searchBorderStyle: {
+          border: 'white'
+        }
+      })
   }
 
   selectCategory = (e) => {
@@ -78,15 +126,18 @@ class SearchBarWithButton extends React.Component {
 
     return (
       <div className="search-bar-container">
-        <form className="search-bar">
-          <div className="search-input-holder">
+        <form className="search-bar" style={this.state.searchBorderStyle}>
+          <div className="search-input-holder" style={this.state.searchStyle}>
             <input
               className="search-input"
               type="text"
               placeholder="Search"
+              ref={f => this._searchBox = f}
               value={this.state.search}
               onChange={this.updateSearch}
               onClick={this.showSearchResults}
+              //onFocus={this._handleIconFocus}
+              onBlur={this._handleTextBlur}
             />
             <ul className="search-results hidden-menu">
               <h4 className="search-result-label">Categories</h4>
@@ -103,12 +154,12 @@ class SearchBarWithButton extends React.Component {
               })}
             </ul>
           </div>
-          <button
-            onClick={(e) => this.selectCategory(e)}
-            className="search-input-button"
-          >
-            Search
-          </button>
+          <div className="search-input-button">
+            <img className="search-icon" src="/images/magnifying_glass.png" alt="magnifying glass" 
+              //onClick={(e) => this.selectCategory(e)}
+              onMouseEnter={this._handleIconFocus}
+            />
+          </div>
         </form>
       </div>
     );
