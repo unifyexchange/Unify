@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { AuthenticatedTemplate, UnauthenticatedTemplate } from '@azure/msal-react';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import ChangePasswordFormContainer from './session_form/change_password_form_container';
@@ -85,6 +86,40 @@ const App = () => (
     </header>
     <HeaderContainer />
     <Switch>
+      <UnauthenticatedTemplate>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/login" component={LoginFormContainer} />
+        <Route exact path="/signup" component={SignupFormContainer} />
+        <Route exact path="/changePassword/:userID" component={ChangePasswordFormContainer} />
+        <Route
+          exact
+          path="/terms-of-service"
+          component={TermsOfServiceContainer}
+        />
+      </UnauthenticatedTemplate>
+      <AuthenticatedTemplate>
+        <Route exact path="/home" component={HomeContainer} />
+        <Route exact path="/items/new" component={ItemFormContainer} />
+        <Route path="/items/:itemId" component={ItemShowContainer} />
+        <Route
+          path="/category/:categoryId"
+          component={CategoryItemContainer}
+        />
+        <Route path="/report/item/:id" component={ReportContainer} />
+        <Route path="/item/edit/:itemId" component={ItemEditContainer} />
+        <Route path="/report/list" component={ReportListContainer} />
+        <Route path="/about-us" component={AboutContainer} />
+        <Route path="/report/metrics" component={MetricsContainer} />
+        <Route path="/report/most-searched-category" component={SearchedCategoryContainer} />
+        <Route
+          exact
+          path="/conversations"
+          component={ConversationViewContainer}
+        />
+      </AuthenticatedTemplate>
+    </Switch>
+
+    {/* <Switch>
       <AuthRoute exact path="/" component={Landing} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
@@ -112,7 +147,7 @@ const App = () => (
         path="/conversations"
         component={ConversationViewContainer}
       />
-    </Switch>
+    </Switch> */}
   </div>
 );
 
