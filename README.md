@@ -29,7 +29,7 @@
 $ gem install rails 5.2.3
 ```
 
-#### Mac
+#### MacOS
 1. Use Homebrew to install ruby 
 ```
 $ brew install ruby 2.7.5
