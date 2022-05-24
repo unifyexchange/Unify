@@ -85,7 +85,7 @@ const App = () => (
       ></link>
     </header>
     <HeaderContainer />
-    <Switch>
+    {/* <Switch>
       <UnauthenticatedTemplate>
         <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={LoginFormContainer} />
@@ -117,9 +117,9 @@ const App = () => (
           component={ConversationViewContainer}
         />
       </AuthenticatedTemplate>
-    </Switch>
+    </Switch> */}
 
-    {/* <Switch>
+    <Switch>
       <AuthRoute exact path="/" component={Landing} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
@@ -147,7 +147,7 @@ const App = () => (
         path="/conversations"
         component={ConversationViewContainer}
       />
-    </Switch> */}
+    </Switch>
   </div>
 );
 

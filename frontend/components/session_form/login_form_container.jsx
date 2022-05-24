@@ -3,6 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../actions/session_actions";
 import LoginForm from "./login_form";
+import {MsSignInButton} from "./ms_login_button";
+import login_form from "./login_form";
 
 const mapStateToProps = ({ errors }) => {
   return {
@@ -13,6 +15,7 @@ const mapStateToProps = ({ errors }) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+  console.log("dispatching user!");
   return {
     processForm: (user) => dispatch(login(user)),
   };

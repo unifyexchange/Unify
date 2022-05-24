@@ -1,33 +1,39 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { withRouter } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import "./styles.scss";
-import { useMsal } from "@azure/msal-react";
+import { useIsAuthenticated, useMsal } from "@azure/msal-react";
+import { callMsGraph } from "../../../src/graph";
+import { loginRequest } from "../../../src/config";
+import {MsSignInButton} from "./ms_login_button"
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email_address: "",
-      password: "",
+      email_address: ""
+      //password: "",
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-
+    
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.forgotPassword = false
     this.hasSubmitted = false
   }
 
-  handleLogin(instance) {
-    instance.loginPopup(loginRequest).catch(e => {
-        console.error(e);
-    });
-}
+  // update(field) {
+  //   return (e) =>
+  //     this.setState({
+  //       [field]: e.currentTarget.value.trim(),
+  //     });
+      
+  // }
 
-  update(field) {
+  update(email) {
     return (e) =>
       this.setState({
-        [field]: e.currentTarget.value.trim(),
-      });
+        email_address: email,
+      }.then(this.handleSubmit()));
+      
   }
 
   forgotPasswordTapped = () => {
@@ -53,10 +59,9 @@ class LoginForm extends React.Component {
     this.setState( {email_address: this.state.email_address, password: this.state.password} )
 
     }
-
+  
   handleSubmit(e) {
     this.hasSubmitted = true
-    console.log("handling submit")
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
@@ -85,8 +90,6 @@ class LoginForm extends React.Component {
       </ul>)
     }
   }
-
-
   
 
 
@@ -137,9 +140,12 @@ class LoginForm extends React.Component {
             {this.renderErrors()}
             <br />
             <input className="login-submit" type="submit" value="Login" />
-            <button onClick={() => handleLogin(instance)}>Sign in using Popup</button>
+            
+            {/* <button onClick={() => handleLogin(instance)}>Sign in using Popup</button> */}
           </div>
         </form>
+        
+        <MsSignInButton  func={this.update}/>
       </div>
     );
   }
