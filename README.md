@@ -43,25 +43,74 @@ $ gem install rails 5.2.3
 ### React 
 
 1. install Node.js at https://nodejs.org/en/download/
-2. 
+2. install react
+```
+$ npm install react react-DOM
+```
+### Redux
+Instructions on how to install React-Redux are found here https://www.npmjs.com/package/react-redux
 
+### Google Cloud Platform
+1. Install the Cloud SQL Auth Proxy at https://cloud.google.com/sql/docs/mysql/sql-proxy#install
+2. Once installed move this file to the top level of Unify project folder
 
-Things you may want to cover:
+### Open ID Connect 
+Everything needed to support this authentication flow can be found herehttps://www.npmjs.com/package/@azure/msal-react
+```
+npm install @azure/msal-react @azure/msal-browser
+```
 
-* Ruby version
+## Running locally
 
-* System dependencies
+### Setup
 
-* Configuration
+1. Install required gems 
+```
+$ bundle 
+```
+or 
+```
+$ bundle install
+```
 
-* Database creation
+2. Install required javascript dependencies
+```
+$ npm install
+```
 
-* Database initialization
+3. Set up Gcloud 
+```
+$ gcloud config set account unifyexchange@gmail.com
 
-* How to run the test suite
+$ gcloud auth login
+```
+a login request will be sent to the unify account and code will be provided to whoever is logged into the unify email account 
 
-* Services (job queues, cache servers, search engines, etc.)
+contact Ryan about this he should be signed in and will send an authentication code
 
-* Deployment instructions
+Lastly, set the project and your ready to run the application locally 
+```
+$ gcloud config set project unify-309723
+```
 
-* ...
+### Running the app Locally
+
+Three separate terminals need to be opened all within the project directory.
+
+* In the first terminal run the following command to start the rails server
+```
+$ rails s
+```
+
+* In the second run this command to start react
+```
+$ npm start
+```
+
+* In the last Terminal run this command to start the Cloud SQL Proxy 
+```
+$ ./cloud_sql_proxy -instances="unify-309723:us-west2:unify-sql"=tcp:6543
+```
+
+With all of these running the app should be available on localhost:3000
+ 
