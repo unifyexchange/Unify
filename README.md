@@ -12,7 +12,7 @@
 
 ### Versions Required:
 
-* Ruby -> 2.7.5
+* Ruby -> 2.7.2
 * Rails -> 5.2.3
 * React -> 16.8.0
 
@@ -32,7 +32,7 @@ $ gem install rails 5.2.3
 #### MacOS
 1. Use Homebrew to install ruby 
 ```
-$ brew install ruby 2.7.5
+$ brew install ruby 2.7.2
 ```
 2. configure the shell environment to contain the path to the bin file.
 3. install rails
