@@ -1,0 +1,67 @@
+.success-modal-section {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.success-modal-content {
+  position: fixed;
+  width: 500px;
+  height: 260px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px; /* Negative half of height. */
+  margin-left: -250px; /* Negative half of width. */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.checkmark-section {
+  height: 100px;
+  background-color: #00b248;
+  border-radius: 2px;
+}
+
+.checkmark-icon {
+  height: 70px;
+  margin-top: 15px;
+}
+
+.success-modal-header {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 23px;
+  color: rgb(80, 80, 80);
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.success-modal-subtitle {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  color: rgb(110, 110, 110);
+}
+
+.success-modal-confirm-button {
+  width: 140px;
+  height: 48px;
+  background-color: #00b248;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.success-modal-confirm-button:hover {
+  cursor: pointer;
+  background-color: #00e575;
+}
