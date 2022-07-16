@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/report/search', to: 'reports#search'
     get '/report/metrics', to: 'reports#metrics'
     get '/report/most-search-category', to: 'reports#mostSearchedCategory'
+    post '/ms_session', to: 'sessions#ms_login' #new line ********************
     resource :session, only: [:create, :destroy, :show]
     resource :favorites, only: [:create, :destroy]
     get '/favorites', to: 'favorites#index'
