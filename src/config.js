@@ -36,9 +36,10 @@ export const msalConfig = {
 };
 
 export const loginRequest = {
-    scope: ["User.Read"]
+  scopes: ["User.Read"],
+  redirectUri: "http://localhost:3000/",
 };
 
 export const graphConfig = {
-    graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
+  graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
 };
