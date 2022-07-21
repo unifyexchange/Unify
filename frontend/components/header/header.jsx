@@ -147,7 +147,10 @@ class Header extends React.Component {
         <Link className="link signup-link" to="/signup">
           Sign up
         </Link>
-        <MsSignInButton className="msLogin"/>
+        <MsSignInButton 
+          className="msLogin"
+          processMsLogin={this.props.processMsLogin}
+        />
       </nav>
     );
 

@@ -1,0 +1,16 @@
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+C:/Ruby27-x64/bin/ruby.exe -I C:/Ruby27-x64/lib/ruby/site_ruby/2.7.0 extconf.rb
+creating Makefile
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20220715-18840-6e3ven sitelibdir\=./.gem.20220715-18840-6e3ven clean
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20220715-18840-6e3ven sitelibdir\=./.gem.20220715-18840-6e3ven
+generating bootsnap-x64-mingw32.def
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20220715-18840-6e3ven sitelibdir\=./.gem.20220715-18840-6e3ven install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220715-18840-6e3ven/bootsnap

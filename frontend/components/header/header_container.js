@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { logout } from "../../actions/session_actions";
+import { logout, msLogin} from "../../actions/session_actions";
 import { fetchAllCategoryItems } from "../../actions/item_actions";
 import Header from "./header";
 import {
@@ -31,6 +31,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchAllCategories: () => {
       return dispatch(fetchAllCategories());
+    },
+    processMsLogin: (user) => {
+      return dispatch(msLogin(user));
     },
   };
 };

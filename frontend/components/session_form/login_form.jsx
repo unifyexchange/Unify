@@ -145,7 +145,6 @@ class LoginForm extends React.Component {
           </div>
         </form>
         
-        <MsSignInButton  func={this.update}/>
       </div>
     );
   }
