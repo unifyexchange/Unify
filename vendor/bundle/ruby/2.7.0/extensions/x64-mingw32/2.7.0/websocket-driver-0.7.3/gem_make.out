@@ -1,0 +1,16 @@
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+C:/Ruby27-x64/bin/ruby.exe -I C:/Ruby27-x64/lib/ruby/site_ruby/2.7.0 extconf.rb
+creating Makefile
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20220709-10724-h0nt8w sitelibdir\=./.gem.20220709-10724-h0nt8w clean
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20220709-10724-h0nt8w sitelibdir\=./.gem.20220709-10724-h0nt8w
+generating websocket_mask-x64-mingw32.def
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20220709-10724-h0nt8w sitelibdir\=./.gem.20220709-10724-h0nt8w install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20220709-10724-h0nt8w

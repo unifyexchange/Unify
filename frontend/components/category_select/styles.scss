@@ -1,0 +1,45 @@
+.category-select-section {
+  margin-top: 50px;
+  padding-left: 25px;
+}
+
+.category-select-header {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 27px;
+}
+
+.category-select-options {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category-select-option {
+  margin-right: 40px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.category-img-section {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background-color: rgb(228, 228, 228);
+}
+
+.category-img-section:hover {
+  background-color: #00e575;
+  cursor: pointer;
+}
+
+.category-img {
+  height: 100px;
+  margin-top: 20px;
+}
+
+.category-name-section {
+  margin-top: 15px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 12px;
+  color: gray;
+}

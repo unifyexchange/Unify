@@ -1,0 +1,40 @@
+.image-upload-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+  z-index: -1;
+}
+
+.upload-image-icon {
+  position: absolute;
+  width: 75px;
+  bottom: 0;
+  right: 0;
+}
+
+.upload-image-icon:hover {
+  cursor: pointer;
+  opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important; /* For IE8 and earlier */
+}
+
+.image-upload-label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.empty-images-section {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 13px;
+  margin-top: 200px;
+}
+
+.empty-images-icon {
+  width: 50px;
+  margin-bottom: 20px;
+}

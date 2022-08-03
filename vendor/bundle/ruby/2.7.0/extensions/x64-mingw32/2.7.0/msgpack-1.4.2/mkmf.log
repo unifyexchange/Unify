@@ -1,0 +1,293 @@
+have_header: checking for ruby/st.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return !!argv[argc];
+8: }
+/* end */
+
+"gcc -E -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby/st.h>
+/* end */
+
+--------------------
+
+have_header: checking for st.h... -------------------- yes
+
+"gcc -E -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong  conftest.c -o conftest.i"
+In file included from conftest.c:5:
+C:/Ruby27-x64/include/ruby-2.7.0/ruby/backward/st.h:2:2: warning: #warning use "ruby/st.h" instead of bare "st.h" [-Wcpp]
+    2 | #warning use "ruby/st.h" instead of bare "st.h"
+      |  ^~~~~~~
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <st.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_str_replace() in ruby.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_str_replace; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_intern_str() in ruby.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_intern_str; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_enc_interned_str() in ruby.h... -------------------- no
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:18:57: error: 'rb_enc_interned_str' undeclared (first use in this function); did you mean 'rb_sym_interned_p'?
+   18 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_interned_str; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~
+      |                                                         rb_sym_interned_p
+conftest.c:18:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_interned_str; return !p; }
+/* end */
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+C:/Ruby27-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\Chris\AppData\Local\Temp\ccAEwoD3.o:conftest.c:(.text+0x5): undefined reference to `rb_enc_interned_str'
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rb_enc_interned_str();
+19: int t(void) { rb_enc_interned_str(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_sym2str() in ruby.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_sym2str; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_str_intern() in ruby.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_str_intern; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_block_lambda() in ruby.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_block_lambda; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_dup() in ruby.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_dup; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_clear() in ruby.h... -------------------- yes
+
+"gcc -o conftest.exe -IC:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32 -IC:/Ruby27-x64/include/ruby-2.7.0/ruby/backward -IC:/Ruby27-x64/include/ruby-2.7.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby27-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby270  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_clear; return !p; }
+/* end */
+
+--------------------
+

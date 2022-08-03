@@ -1,0 +1,44 @@
+.main-content-section {
+  position: fixed;
+  top: 60px !important;
+  // background-color: yellow;
+  width: -webkit-calc(100% - 270px);
+  width:    -moz-calc(100% - 270px);
+  width:         calc(100% - 270px);
+  // height:100vh;
+  overflow-y: scroll;
+  background-color: #fbfbfb;
+  padding-left: 25px;
+  position: relative;
+}
+
+.main-content-section::-webkit-scrollbar { 
+  display: none; 
+}
+
+
+.home-break-line {
+  width: 100%;
+  display: block;
+  border: none;
+  height: 1px;
+  background: #f2f2f2;
+  margin-bottom: 0;
+}
+
+.home-down-arrow-container {
+  width: 100%;
+  text-align: center;
+}
+
+.home-down-arrow {
+  height: 40px;
+  display: inline-block;
+}
+
+.home-down-arrow:hover {
+  cursor: pointer;
+  opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important; /* For IE8 and earlier */
+  box-shadow: 0 0 0px #000000 !important;
+}

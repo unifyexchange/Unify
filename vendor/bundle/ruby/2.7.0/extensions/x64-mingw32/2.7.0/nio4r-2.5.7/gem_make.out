@@ -1,0 +1,14 @@
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.7/ext/nio4r
+C:/Ruby27-x64/bin/ruby.exe -I C:/Ruby27-x64/lib/ruby/site_ruby/2.7.0 extconf.rb
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.7/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20220709-10724-1mcoc5y sitelibdir\=./.gem.20220709-10724-1mcoc5y clean
+make: *** No rule to make target 'clean'.  Stop.
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.7/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20220709-10724-1mcoc5y sitelibdir\=./.gem.20220709-10724-1mcoc5y
+make: Nothing to be done for 'all'.
+
+current directory: C:/Users/Chris/Desktop/Unify-dev/Unify/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.7/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20220709-10724-1mcoc5y sitelibdir\=./.gem.20220709-10724-1mcoc5y install
+make: Nothing to be done for 'install'.
