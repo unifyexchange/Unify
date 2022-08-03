@@ -1,0 +1,334 @@
+.item-preview-section {
+    margin-right: 40px;
+    margin-bottom: 25px;
+    text-align: left;
+    background-color: white;
+    padding: 25px;
+    width: 200px;
+    box-shadow: -1px 4px 18px #c4c4c4;
+    border-radius: 10px;
+    height: 285px;
+  }
+  
+  .item-preview-section:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  
+  .item-preview-img-section {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .item-preview-img {
+    height: 140px;
+  }
+  
+  .item-preview-info-section {
+    margin-top: 15px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .item-preview-name {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    color: rgb(80, 80, 80);
+    padding-bottom: 7px;
+  }
+  
+  .home-break-line {
+    width: 100%;
+    display: block;
+    border: none;
+    height: 1px;
+    background: #f2f2f2;
+    margin-bottom: 0;
+    margin-top: 50px;
+  }
+  
+  .item-preview-price {
+    font-size: 15px;
+    float: left;
+    background-color: #00b248;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .favorites-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .favorite-heart-icon {
+    height: 30px;
+    position: absolute;
+  }
+  
+  .report-section {
+    position: absolute;
+    right: 2px;
+    top: 1px;
+  }
+  
+  .reportBtn{
+    border: 1.3px solid #00b248;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .favorite-heart-icon:hover {
+    cursor: pointer;
+    height: 33px;
+    opacity: 0.7 !important;
+    filter: alpha(opacity=70) !important; /* For IE8 and earlier */
+    box-shadow: 0 0 0px #000000 !important;
+  }
+
+.description-box{
+    width: 70%;
+    height: 20%;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #fafafa;
+    font-size: 12px;
+    padding-left: 20px;
+}
+
+.isLoading{
+  
+  opacity: 0.6;
+}
+
+.item-title {
+  font-family: 'Lexend Deca', sans-serif;
+  margin-bottom: 10px;
+  margin: 10px 4px 8px 10px;
+}
+
+.table-stripped {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10%;
+    overflow: auto;
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table-stripped tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .table-stripped tr:hover:not(:first-child){
+      background-color: #00b248;
+      color: #fff;
+      transition: .1s all ease-in;
+      cursor: pointer;
+  }
+
+.details-section{
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    margin-right: 10px;
+    position: relative;
+    overflow-y: scroll;
+    width: 40%;
+    height: 500px;
+    float: left;
+    margin-left: 30px;
+}
+
+.report-list-container{
+    margin-top: 120px;
+    position: relative;
+}
+
+.report-list-section{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    margin-left: 10px;
+    float: right;
+    margin-right: 30px;
+    position: relative;
+}
+
+.table-section{
+    height: 500px;
+    overflow-x: scroll;
+}
+
+.report-header{
+
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.details-info{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.details-title{
+    font-weight: bold;
+}
+
+
+.pagination {
+    left: 20px;
+    position: absolute;
+    bottom: 20px;
+}
+.pagination li {
+    display: inline-block;
+}
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+  }
+  
+  .pagination li.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination li a:hover:not(.active) {
+    background-color: #ddd;
+   }
+
+  .update-status-btn {
+    width: 80px;
+    height: 30px;
+    background-color: #00b248;
+    font-family: "Source Sans Pro", sans-serif;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+.isLoading{
+  
+    opacity: 0.6;
+}
+
+
+.details-table{
+  height: 95%;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 96.7%;
+  background: #fff;
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.view-item-btn{
+    width: 80px;
+    height: 30px;
+    background-color: #c4c4c4;
+    font-family: "Source Sans Pro", sans-serif;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.search-form{
+  width: 50%;
+  float: right;
+  position: relative;
+  top: 20px;
+}
+
+#ticket-input{
+    width: 45%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #00b248;
+    background-color: #fafafa;
+    /* padding-left: 20px; */
+    font-size: 12px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+}
+
+.search-btn{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    vertical-align: bottom;
+}
+
+
+.show-all{
+    padding-left: 30px;
+    color: #00b248;
+    font-weight: 700;
+    cursor: pointer;
+    top: 2%;
+    position: absolute;
+}
+
+
+.table-holder{
+  height: 81%;
+  overflow: scroll;
+  width: 100%;
+}
+
+@media only screen and (max-width: 799px) {
+  .report-list-section{
+    margin-left: 3px;
+    margin-right: 10px;
+  }
+  
+}
+
+@media only screen and (max-width: 529px) {
+  .report-list-section{
+    width: 100%;
+    display: block;
+    margin: 0px 10px 15px 10px;
+  }
+
+  .details-section{
+    width: 100%;
+    display: block;
+    margin: 0px 10px 15px 10px;
+  }
+  
+}
+
