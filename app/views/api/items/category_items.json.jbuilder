@@ -1,1 +1,0 @@
-json.array! @category_items.each, :id, :description, :price, :subtitle, :name, :user_id, :image_urls, :category, :condition_name, :category_name,  :seller_name, :created_at
