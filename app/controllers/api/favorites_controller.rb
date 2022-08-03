@@ -2,6 +2,7 @@ class Api::FavoritesController < ApplicationController
   def index
     @favorites = Favorite.where(user_id: current_user.id).order('created_at DESC')
   end
+
   def create
     @favorite = Favorite.new(user_id: current_user.id, item_id: favorite_params[:item_id].to_i)
 

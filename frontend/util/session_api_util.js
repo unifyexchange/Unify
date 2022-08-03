@@ -6,6 +6,14 @@ export const login = (user) => {
   });
 };
 
+export const msLogin = (user) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/ms_session",
+    data: { user },
+  });
+};
+
 export const signup = (user) => {
   return $.ajax({
     method: "POST",

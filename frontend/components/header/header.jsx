@@ -7,6 +7,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { adminEmails } from "../../util/adminAccount"
 import "./styles.scss";
 import  firebase  from 'firebase/app';
+import {MsSignInButton} from "../session_form/ms_login_button"
 
 class Header extends React.Component {
   constructor(props) {
@@ -146,6 +147,10 @@ class Header extends React.Component {
         <Link className="link signup-link" to="/signup">
           Sign up
         </Link>
+        <MsSignInButton 
+          className="msLogin"
+          processMsLogin={this.props.processMsLogin}
+        />
       </nav>
     );
 
@@ -188,7 +193,7 @@ class Header extends React.Component {
 
     const accountLinks = () => (
       <div className="link-holder">
-        {accountSettings()}
+        {accountSettings()} 
 
         <hgroup className="header-group">
           <span
@@ -196,23 +201,28 @@ class Header extends React.Component {
               this.state.showMenu ? "show-display" : "no-display "
             } menuHolder`}
           >
-
-            <Link className="link menu-hide" to="/conversations">
-              Messages
+            <Link className="link menu-hide new-post" to="/items/new">
+              <img className="icon" src="/images/new_post.png" alt="plus-sign" width="18px"/>
+              Post an Ad
             </Link>
-            {this.state.hasUnreadMessages ? unreadDot() : null}
-            <Link className="link menu-hide" to="/items/new">
-              Sell on Unify
-            </Link>
+          
             <Link className="link menu-hide" to="/about-us">
               About
             </Link>
+            <SearchBarWithButton
+              categories={categories}
+              updateItems={this.updateCategoryItems}
+            /> 
+            <Link className="link menu-hide" to="/conversations">
+              <img className="msg-icon" src="/images/envelope.png"/>
+            </Link>
+            {this.state.hasUnreadMessages ? unreadDot() : null}
             <button
               id="account-button"
               className="account-button menu-hide link"
               onClick={this.showMenu}
             >
-              My Account
+              <img className="icon user-icon" src="/images/user_icon.png" alt="user-icon" width="30px" />
             </button>
           </span>
         </hgroup>
@@ -224,10 +234,7 @@ class Header extends React.Component {
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <SearchBarWithButton
-          categories={categories}
-          updateItems={this.updateCategoryItems}
-        />
+
       </div>
     );
 

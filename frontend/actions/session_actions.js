@@ -50,6 +50,19 @@ export const login = (user) => {
   };
 };
 
+export const msLogin = (user) => {
+  return (dispatch) => {
+    return APIUtil.msLogin(user).then(
+      (user) => {
+        return dispatch(receiveCurrentUser(user));
+      },
+      (err) => {
+        return dispatch(receiveErrors(err.responseJSON));
+      }
+    );
+  };
+};
+
 export const changePassword = (payload) => {
   return (dispatch) => {
     return APIUtil.changePassword(payload).then(

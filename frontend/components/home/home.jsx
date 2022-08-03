@@ -4,6 +4,8 @@ import UserFavoriteItemsContainer from './../user_favorite_items/user_favorite_i
 import SchoolInfoContainer from './../school_info/school_info_container';
 import CategorySelectContainer from './../category_select/category_select_container';
 import RecentItemsContainer from './../recent_items/recent_items_container';
+import ProfileContent from './profileContent';
+import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import './styles.scss';
 
 
@@ -42,6 +44,7 @@ class Home extends React.Component {
       <div>
         <div className="main-content-section">{renderLanding()}</div>
         <UserFavoriteItemsContainer />
+        <ProfileContent />
       </div>
     );
   }

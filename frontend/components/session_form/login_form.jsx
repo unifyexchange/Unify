@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-
 import "./styles.scss";
+import { useMsal } from "@azure/msal-react";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,10 +15,13 @@ class LoginForm extends React.Component {
 
     this.forgotPassword = false
     this.hasSubmitted = false
-
   }
 
-  
+  handleLogin(instance) {
+    instance.loginPopup(loginRequest).catch(e => {
+        console.error(e);
+    });
+}
 
   update(field) {
     return (e) =>
@@ -84,10 +87,11 @@ class LoginForm extends React.Component {
   }
 
 
-
+  
 
 
   render() {
+    
     return (
       <div className="login-form-container">
         <div className="img-container">
@@ -133,6 +137,7 @@ class LoginForm extends React.Component {
             {this.renderErrors()}
             <br />
             <input className="login-submit" type="submit" value="Login" />
+            <button onClick={() => handleLogin(instance)}>Sign in using Popup</button>
           </div>
         </form>
       </div>
