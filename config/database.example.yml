@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: P123@ssword
+  database: postgres-database-dev
+  host: localhost
+
+
+test:
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: P123@ssword
+  database: postgres-database-test
+  host: 127.0.0.1
+
+production:
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: P123@ssword
+  database: postgres-database
+  host: /cloudsql/unify-309723:us-west2:unify-sql
