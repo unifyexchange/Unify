@@ -4,7 +4,8 @@ import SearchBar from "./../search_bar/search_bar";
 import SearchBarWithButton from "./../search_bar/search_bar_with_button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { adminEmails } from "../../util/adminAccount"
+import { adminEmails } from "../../util/adminAccount";
+import {MsSignInButton} from "../session_form/ms_login_button";
 import "./styles.scss";
 import  firebase  from 'firebase/app';
 
@@ -32,7 +33,7 @@ class Header extends React.Component {
   getCurrentUserName = (currentUser) => {
     return `${currentUser.first_name} ${currentUser.last_name}`;
   }
-  
+
   observeConversations = async (currentUser) => {
     console.log("in observe", currentUser);
     await firebase.firestore().collection("conversations").where('users', 'array-contains', {id: currentUser.id, name: this.getCurrentUserName(currentUser)})
@@ -66,7 +67,7 @@ class Header extends React.Component {
       return !conversation.recipientHasRead;
     }
     return false;
-    
+
   }
 
 
@@ -146,6 +147,10 @@ class Header extends React.Component {
         <Link className="link signup-link" to="/signup">
           Sign up
         </Link>
+        <MsSignInButton
+            className="msLogin"
+            processMsLogin={this.props.processMsLogin}
+        />
       </nav>
     );
 
@@ -161,7 +166,7 @@ class Header extends React.Component {
           </h4>
         </div>
 
-        { adminEmails.includes(this.props.currentUser.email_address) && 
+        { adminEmails.includes(this.props.currentUser.email_address) &&
           <div>
            <hr className="account-setting-divider" />
            <ul

@@ -32,6 +32,7 @@ gem 'pry-rails'
 gem 'annotate'
 gem 'jquery-rails'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'dotenv-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
