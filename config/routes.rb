@@ -13,12 +13,13 @@ Rails.application.routes.draw do
     get '/report/search', to: 'reports#search'
     get '/report/metrics', to: 'reports#metrics'
     get '/report/most-search-category', to: 'reports#mostSearchedCategory'
+    post '/ms_session', to: 'sessions#ms_login'
     resource :session, only: [:create, :destroy, :show]
     resource :favorites, only: [:create, :destroy]
     get '/favorites', to: 'favorites#index'
     get '/favorite_items', to: 'items#favorite_items'
     get '/category_items', to: 'items#category_items'
-    
+
     get '/messages', to: 'messages#index'
     post '/conversations', to: 'conversations#create'
 
@@ -26,10 +27,10 @@ Rails.application.routes.draw do
     post '/sendForgotPasswordEmail', to: 'users#sendForgotPasswordEmail'
     get '/verifyChangePassword/:id', to: 'users#verifyChangePassword'
     post '/changePassword', to: 'users#changePassword'
-    
+
 
     # post '/reports', to: 'reports#create'
   end
-  
+
   root "static_pages#root"
 end

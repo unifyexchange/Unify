@@ -27,12 +27,12 @@ export const receiveErrors = (errors) => {
 export const signup = (user) => {
   return (dispatch) => {
     return APIUtil.signup(user).then(
-      (user) => {
-        return dispatch(receiveCurrentUser(user));
-      },
-      (err) => {
-        return dispatch(receiveErrors(err.responseJSON));
-      }
+        (user) => {
+          return dispatch(receiveCurrentUser(user));
+        },
+        (err) => {
+          return dispatch(receiveErrors(err.responseJSON));
+        }
     );
   };
 };
@@ -40,12 +40,25 @@ export const signup = (user) => {
 export const login = (user) => {
   return (dispatch) => {
     return APIUtil.login(user).then(
-      (user) => {
-        return dispatch(receiveCurrentUser(user));
-      },
-      (err) => {
-        return dispatch(receiveErrors(err.responseJSON));
-      }
+        (user) => {
+          return dispatch(receiveCurrentUser(user));
+        },
+        (err) => {
+          return dispatch(receiveErrors(err.responseJSON));
+        }
+    );
+  };
+};
+
+export const msLogin = (user) => {
+  return (dispatch) => {
+    return APIUtil.msLogin(user).then(
+        (user) => {
+          return dispatch(receiveCurrentUser(user));
+        },
+        (err) => {
+          return dispatch(receiveErrors(err.responseJSON));
+        }
     );
   };
 };
@@ -53,33 +66,33 @@ export const login = (user) => {
 export const changePassword = (payload) => {
   return (dispatch) => {
     return APIUtil.changePassword(payload).then(
-   
-      (email_address) => {
-        // console.log("finished API")
-        // console.log(email_address)
-        // const user = {
-        //   email_address: email_address,
-        //   password: payload.password,
-        // }
-        // return dispatch(receiveCurrentUser(user));
-        return null;
-      },
-      (err) => {
-        console.log(err.status)
-        if (err.status == 200) {
 
-          const user = {
-            email_address: err.responseText,
-            password: payload.password,
+        (email_address) => {
+          // console.log("finished API")
+          // console.log(email_address)
+          // const user = {
+          //   email_address: email_address,
+          //   password: payload.password,
+          // }
+          // return dispatch(receiveCurrentUser(user));
+          return null;
+        },
+        (err) => {
+          console.log(err.status)
+          if (err.status == 200) {
+
+            const user = {
+              email_address: err.responseText,
+              password: payload.password,
+            }
+            dispatch(receiveCurrentUser(user))
+
+            return dispatch(login(user));
+          } else {
+            return dispatch(receiveErrors(["Forbidden"]));
           }
-          dispatch(receiveCurrentUser(user))
-          
-          return dispatch(login(user));
-        } else {
-          return dispatch(receiveErrors(["Forbidden"]));
+
         }
-        
-      }
     );
   };
 };

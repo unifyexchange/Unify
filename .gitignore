@@ -3,3 +3,4 @@ config/database.yml
 tmp/
 node_modules/
 log/
+.byebug_history
