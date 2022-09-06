@@ -54,7 +54,7 @@
     "style-loader": "^0.23.1"
   },
   "engines": {
-    "node": "^16.15.0"
+    "node": "^16.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
