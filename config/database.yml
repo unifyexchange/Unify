@@ -90,10 +90,10 @@ development:
   pool: 5
   timeout: 5000
   username: postgres
-  password: 15006221444
+  password: P123@ssword
   database: postgres-database
-  host: 127.0.0.1
-  port: 6543
+  host: localhost
+  port: 5432
 
 
 test:
@@ -101,17 +101,17 @@ test:
   pool: 5
   timeout: 5000
   username: postgres
-  password: 15006221444
+  password: P123@ssword
   database: postgres-database
-  host: /cloudsql/unify-309723:us-west2:unify-sql
+  # host: /cloudsql/unify-309723:us-west2:unify-sql
 
 production:
   adapter: postgresql
   pool: 5
   timeout: 5000
   username: postgres
-  password: 15006221444
+  password: P123@ssword
   database: postgres-database
-  host: /cloudsql/unify-309723:us-west2:unify-sql
+  # host: /cloudsql/unify-309723:us-west2:unify-sql
 
   #/System/Volumes/Data/cloudsql/unify-309723:us-west2:unify-sql

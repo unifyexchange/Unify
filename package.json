@@ -32,6 +32,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "sweetalert": "^2.1.2",
+    "uuid": "^9.0.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
@@ -46,14 +47,14 @@
     "eslint-plugin-react": "^7.20.0",
     "file-loader": "^4.1.0",
     "firebase": "^8.7.1",
-    "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "react-alice-carousel": "^1.15.2",
+    "sass": "^1.54.8",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1"
   },
   "engines": {
-    "node": "^14.20.0"
+    "node": "^16.15.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
