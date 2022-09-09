@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   validates :email_address, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
-  validates_uniqueness_of :email_address, :case_sensitive => false  
+  # validates_uniqueness_of :email_address, :case_sensitive => false 
   
 
   after_initialize :ensure_session_token
