@@ -31,6 +31,6 @@ Rails.application.routes.draw do
 
     # post '/reports', to: 'reports#create'
   end
-
+  get '/home', to: 'static_pages#root'
   root "static_pages#root"
 end

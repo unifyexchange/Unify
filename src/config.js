@@ -4,7 +4,7 @@ export const msalConfig = {
     auth: {
         clientId: '2bcbcced-47ca-4828-91b9-7f63b34f7101',
         authority: 'https://login.microsoftonline.com/496b6d7d-089e-4318-89ef-d9fdf760aafd',
-        redirectUri: 'https://unify-exchange.com//'
+        redirectUri: 'https://unify-exchange.com/home'
     },
     cache: {
         cacheLocation: "sessionStorage",
@@ -37,7 +37,7 @@ export const msalConfig = {
 
 export const loginRequest = {
   scopes: ["User.Read"],
-  redirectUri: "https://unify-exchange.com/",
+  redirectUri: "https://unify-exchange.com/home",
 };
 
 export const graphConfig = {
