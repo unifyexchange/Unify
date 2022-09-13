@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { adminEmails } from "../../util/adminAccount";
 import {MsSignInButton} from "../session_form/ms_login_button";
+import {MsSignOutButton} from "../session_form/ms_logout_button";
 import "./styles.scss";
 import  firebase  from 'firebase/app';
 
@@ -139,6 +140,7 @@ class Header extends React.Component {
 
   render() {
     const { categories } = this.props;
+
     const sessionLinks = () => (
       <nav className="header-links">
         <Link className="link" to="/login">
@@ -154,38 +156,39 @@ class Header extends React.Component {
       </nav>
     );
 
-    const accountSettings = () => (
-      <div className="account-settings-menu hidden-menu">
-        <div className="account-settings-stats">
-          <h3 className="account-settings-name">
-            {this.props.currentUser.first_name}{" "}
-            {this.props.currentUser.last_name}{" "}
-          </h3>
-          <h4 className="account-settings-email">
-            {this.props.currentUser.email_address}
-          </h4>
-        </div>
+    const accountSettings = () => {
+        const logged_in_with_open_id = this.props.currentUser.email_address&& this.props.currentUser.email_address.includes('@redlands.edu')
+        return(<div className="account-settings-menu hidden-menu">
+            <div className="account-settings-stats">
+                <h3 className="account-settings-name">
+                    {this.props.currentUser.first_name}{" "}
+                    {this.props.currentUser.last_name}{" "}
+                </h3>
+                <h4 className="account-settings-email">
+                    {this.props.currentUser.email_address}
+                </h4>
+            </div>
 
-        { adminEmails.includes(this.props.currentUser.email_address) &&
-          <div>
-           <hr className="account-setting-divider" />
-           <ul
-            className="account-settings-list"
-            onClick={() => this.moveToMetrics()}
+            {adminEmails.includes(this.props.currentUser.email_address) &&
+                <div>
+                    <hr className="account-setting-divider"/>
+                    <ul
+                        className="account-settings-list"
+                        onClick={() => this.moveToMetrics()}
+                    >
+                        <li className="account-settings-item">Metrics</li>
+                    </ul>
+                </div>
+            }
+            <hr className="account-setting-divider"/>
+            <ul
+                className="account-settings-list"
+                onClick={() => this.props.logout(this.props.currentUser)}
             >
-           <li className="account-settings-item">Metrics</li>
-          </ul>
-         </div>
-        }
-        <hr className="account-setting-divider" />
-        <ul
-          className="account-settings-list"
-          onClick={() => this.props.logout(this.props.currentUser)}
-        >
-          <li className="account-settings-item">Logout</li>
-        </ul>
-      </div>
-    );
+                {logged_in_with_open_id ?  <li className="account-settings-item"><MsSignOutButton/></li> :<li className="account-settings-item">Logout</li> }
+            </ul>
+        </div>)
+    }
 
     const unreadDot = () => (
       <span className="unreadDot"></span>

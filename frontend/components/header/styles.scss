@@ -195,7 +195,14 @@
   font-size: 17px;
   margin-left: 35px;
 }
-
+.float-right{
+  float: right;
+  text-align: center;
+}
+.warning{
+  color:red;
+  padding-bottom: 5px;
+}
 .account-button:hover {
   color: #00b248;
 }
@@ -246,7 +253,7 @@
   #menu-bar{
     display: block;
   }
-  
+
   .account-settings-menu{
     width: 200px;
     height: 200px;

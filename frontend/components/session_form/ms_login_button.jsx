@@ -8,7 +8,7 @@ import { useIsAuthenticated } from "@azure/msal-react";
 export const MsSignInButton = ({processMsLogin}) => {
     const { instance, accounts } = useMsal();
     const isAuthenticated = useIsAuthenticated();
-    
+    const already_logged_in = instance.getAllAccounts().length>0
     const handleLogin = () => {
         instance.loginPopup(loginRequest).then(response => {
             getUserData(response.accessToken).then(resp => {
@@ -56,7 +56,8 @@ export const MsSignInButton = ({processMsLogin}) => {
     return (
         <>
             {/* <button className="account-button link" onClick={() => handleLogout(instance)}>Sign out using OpenID</button> */}
-            <button className="account-button link" onClick={() => handleLogin(instance)}>Sign in using OpenID</button>
+            {already_logged_in&&<div className="float-right"> <p className='warning'>You are not completly logged out from OpenID. To Login again</p> <button className="" onClick={() => handleLogout(instance)}>Sign out using OpenID</button></div>}
+            {!already_logged_in&&<button className="account-button link" onClick={() => handleLogin(instance)}>Sign in using OpenID</button>}
         </>
     );
 }
