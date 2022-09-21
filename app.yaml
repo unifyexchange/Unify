@@ -1,18 +1,12 @@
 entrypoint: bundle exec rackup --port $PORT
-env: flex
+#env: flex
 # runtime: ruby27
 runtime: ruby
-
 instance_class: F1
 
 automatic_scaling:
-  target_cpu_utilization: 0.50
   min_instances: 1
   max_instances: 2
-  min_pending_latency: 30ms
-  max_pending_latency: automatic
-  max_concurrent_requests: 50
-
 
 beta_settings:
   cloud_sql_instances: unify-309723:us-west2:unify-sql
