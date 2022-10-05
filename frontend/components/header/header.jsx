@@ -143,14 +143,14 @@ class Header extends React.Component {
 
     const sessionLinks = () => (
       <nav className="header-links">
-        <Link className="link" to="/login">
+        {/* <Link className="link" to="/login">
           Login
-        </Link>
-        <Link className="link signup-link" to="/signup">
+        </Link> */}
+        {/* <Link className="link signup-link" to="/signup">
           Sign up
-        </Link>
+        </Link> */}
         <MsSignInButton
-            className="msLogin"
+            className="link signup-link"
             processMsLogin={this.props.processMsLogin}
         />
       </nav>

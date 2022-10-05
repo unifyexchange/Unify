@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { MsSignInButton } from "../session_form/ms_login_button";
 
 import "./styles.scss";
 class Landing extends React.Component {
@@ -17,12 +18,10 @@ class Landing extends React.Component {
           <br />
           <h2>campus marketplace.</h2>
         </div>
-        <button
-          className="sign-up-button animated fadeInUp delay-1s"
-          onClick={() => this.props.history.push("/signup")}
-        >
-          Sign Up
-        </button>
+        <MsSignInButton
+            className="sign-up-button animated fadeInUp delay-1s"
+            processMsLogin={this.props.processMsLogin}
+        />
       </div>
     );
   }

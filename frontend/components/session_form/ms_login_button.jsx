@@ -5,7 +5,7 @@ import { loginRequest, graphConfig } from "../../../src/config";
 import { useNavigate } from "react-router-dom";
 import { useIsAuthenticated } from "@azure/msal-react";
 
-export const MsSignInButton = ({processMsLogin}) => {
+export const MsSignInButton = ({processMsLogin,className}) => {
     const { instance, accounts } = useMsal();
     const isAuthenticated = useIsAuthenticated();
     const already_logged_in = instance.getAllAccounts().length>0
@@ -57,7 +57,7 @@ export const MsSignInButton = ({processMsLogin}) => {
         <>
             {/* <button className="account-button link" onClick={() => handleLogout(instance)}>Sign out using OpenID</button> */}
             {already_logged_in&&<div className="float-right"> <p className='warning'>You are not completly logged out from OpenID. To Login again</p> <button className="" onClick={() => handleLogout(instance)}>Sign out using OpenID</button></div>}
-            {!already_logged_in&&<button className="account-button link" onClick={() => handleLogin(instance)}>Sign in using OpenID</button>}
+            {!already_logged_in&&<button className={className} onClick={() => handleLogin(instance)}>School Login</button>}
         </>
     );
 }

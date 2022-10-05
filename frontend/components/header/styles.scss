@@ -48,12 +48,14 @@
 
 .signup-link {
   background-color: #00b248;
+  border: none;
   border-radius: 5px;
   padding-top: 10px;
   padding-bottom: 7px;
   padding-left: 25px;
   padding-right: 25px;
   color: white;
+  
 }
 
 .signup-link:hover {
@@ -267,7 +269,6 @@
     text-decoration: none;
     color: gray;
     display: block;
-    margin-top: 30px;
   }
 
   .menuHolder{
