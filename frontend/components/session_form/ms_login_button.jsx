@@ -56,7 +56,7 @@ export const MsSignInButton = ({processMsLogin,className}) => {
     return (
         <>
             {/* <button className="account-button link" onClick={() => handleLogout(instance)}>Sign out using OpenID</button> */}
-            {already_logged_in&&<div className="float-right"> <p className='warning'>You are not completly logged out from OpenID. To Login again</p> <button className="" onClick={() => handleLogout(instance)}>Sign out using OpenID</button></div>}
+            {already_logged_in&&<div className="float-right"> <p className='warning'>You are not completly logged out. To Login again</p> <button className="" onClick={() => handleLogout(instance)}>Sign out</button></div>}
             {!already_logged_in&&<button className={className} onClick={() => handleLogin(instance)}>School Login</button>}
         </>
     );
