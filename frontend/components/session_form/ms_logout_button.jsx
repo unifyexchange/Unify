@@ -17,7 +17,7 @@ export const MsSignOutButton = () => {
 
     return (
         <>
-            <button className="account-button" onClick={() => handleLogout(instance)}>Sign out</button>
+            <button className="account-button" onClick={() => handleLogout(instance)}>Sign out from OpenID</button>
         </>
     );
 }
