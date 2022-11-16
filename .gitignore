@@ -1,5 +1,5 @@
 .idea/
-config/database.yml
+#config/database.yml
 tmp/
 .DS_Store
 .byebug_history
