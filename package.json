@@ -41,6 +41,7 @@
     "webpack-cli": "^3.1.2",
     "firebase": "^8.7.1",
     "file-loader": "^4.3.0",
+    "sass": "^1.54.8",
     "sass-loader": "^7.1.0",
     "css-loader": "^3.1.0",
     "style-loader": "^0.23.1"
