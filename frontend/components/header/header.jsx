@@ -37,6 +37,7 @@ class Header extends React.Component {
 
   observeConversations = async (currentUser) => {
     console.log("in observe", currentUser);
+    if(!!currentUser){
     await firebase.firestore().collection("conversations").where('users', 'array-contains', {id: currentUser.id, name: this.getCurrentUserName(currentUser)})
     .onSnapshot(async querySnapshot => {
       var hasUnreadMessages = false;
@@ -59,6 +60,7 @@ class Header extends React.Component {
 
 
     });
+  }
   }
 
 
@@ -106,8 +108,7 @@ class Header extends React.Component {
     if (
       document
         .getElementsByClassName("account-settings-menu")[0]
-        .contains(e.target) ||
-      button.contains(e.target)
+        .contains(e.target)
     ) {
       return;
     }
